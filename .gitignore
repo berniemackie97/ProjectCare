@@ -1,13 +1,14 @@
 # Godot
-.import/
 .godot/
-# C#
+.import/
+# C# / Mono
 **/bin/
 **/obj/
+.mono/
 # IDEs
 .vs/
-.idea/
 .vscode/
-# OS cruft
+.idea/
+# OS
 .DS_Store
 Thumbs.db

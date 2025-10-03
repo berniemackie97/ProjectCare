@@ -1,0 +1,14 @@
+name: Feature request
+description: New capability or UX
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: goal
+    attributes: { label: Goal, placeholder: What outcome? Why now? }
+    validations: { required: true }
+  - type: textarea
+    id: scope
+    attributes: { label: Scope, placeholder: MVP cut, out of scope }
+  - type: textarea
+    id: test
+    attributes: { label: Test plan, placeholder: How do we verify it works? }

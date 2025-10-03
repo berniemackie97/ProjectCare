@@ -1,0 +1,14 @@
+name: Bug report
+description: Something broke or behaves weirdly
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes: { label: What happened?, placeholder: Steps + expected vs. actual }
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes: { label: Repro steps, placeholder: 1) ... 2) ... }
+  - type: input
+    id: env
+    attributes: { label: Env, placeholder: OS, Godot 4.5 mono, .NET 8.x }
