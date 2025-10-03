@@ -1,0 +1,13 @@
+# Godot
+.import/
+.godot/
+# C#
+**/bin/
+**/obj/
+# IDEs
+.vs/
+.idea/
+.vscode/
+# OS cruft
+.DS_Store
+Thumbs.db
