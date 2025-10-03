@@ -1,0 +1,29 @@
+name: Bug report
+description: Something broke or behaves weirdly
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Steps to reproduce and expected vs. actual.
+      placeholder: "1) ... 2) ... 3) ... Expected: ... Actual: ..."
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      description: OS, Godot 4.5 mono build, .NET SDK version, branch/commit.
+      placeholder: "macOS 14.6, Godot 4.5 mono, .NET 8.0.x, dev@abcdef"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / screenshots
+      description: Paste errors, screenshots, or attach files.
+    validations:
+      required: false

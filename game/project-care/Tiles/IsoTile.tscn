@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dwsfj0jq6ipgv"]
+
+[node name="IsoTile" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.19536781, 0.76532, 0.07979957, 1)
+polygon = PackedVector2Array(0, 16, 32, 0, 64, 16, 32, 32)
