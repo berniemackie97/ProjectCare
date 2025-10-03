@@ -1,0 +1,14 @@
+# Godot
+.godot/
+.import/
+# C# / Mono
+**/bin/
+**/obj/
+.mono/
+# IDEs
+.vs/
+.vscode/
+.idea/
+# OS
+.DS_Store
+Thumbs.db

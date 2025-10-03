@@ -1,0 +1,30 @@
+name: Feature request
+description: New capability or UX
+labels: [enhancement]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What outcome? Why now?
+      placeholder: Be specific about user impact and success criteria.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is in / out for the MVP cut?
+      placeholder: Bullet list is fine.
+    validations:
+      required: false
+
+  - type: textarea
+    id: test
+    attributes:
+      label: Test plan
+      description: How do we verify it works?
+      placeholder: Steps or scenarios.
+    validations:
+      required: false
