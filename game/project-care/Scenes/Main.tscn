@@ -22,7 +22,7 @@ tile_map_data = PackedByteArray("AAD//wAABQAAAAAAAQD+/wEABQAAAAAAAQD+/wAABQAAAAA
 tile_set = ExtResource("3_kln2b")
 script = ExtResource("4_rgh2o")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="World"]
+[node name="Walls" type="TileMapLayer" parent="World"]
 tile_map_data = PackedByteArray("AAD///r/BQAAAAAAAgD+//v/BQAAAAAAAwD+//z/BQAAAAAAAwD9//3/BQAAAAAAAwD9//7/BQAAAAAAAwD8////BQAAAAAAAwD//wQABQAAAAAAAwD//wMABQAAAAAAAwAAAAIABQAAAAAAAwAAAAEABQAAAAAAAwABAAAABQAAAAAAAwABAP//BQAAAAAAAwD///v/BQAAAAAAAgAAAPz/BQAAAAAAAgAAAP3/BQAAAAAAAgABAP7/BQAAAAAAAgD+/wQABQAAAAAAAgD9/wIABQAAAAAAAgD8/wEABQAAAAAAAgD8/wAABQAAAAAAAgD9/wMABQAAAAAAAgA=")
 tile_set = ExtResource("3_kln2b")
 
