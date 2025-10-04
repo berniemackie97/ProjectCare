@@ -7,12 +7,16 @@ public partial class Pet : Node2D
 	[Export] public int MaxStat { get; set; } = 100;
 	[Export] public float DecayPerMinute { get; set; } = 2f;
 	[Export] public NodePath StatsLabelPath { get; set; }
-	
+	[Export] public float MoveSpeed { get; set; } = 200f;
+
 	private Label _label;
 	public float Happiness { get; private set; }
 	public float Energy { get; private set; }
 	public float Health { get; private set; }
 	public float Focus { get; private set; }
+	
+	
+	
 	private double _accum;
 	
 	public override void _Ready()
@@ -31,6 +35,12 @@ public partial class Pet : Node2D
 			DecayAll(ticks * DecayPerMinute);
 			_accum = 0.0;
 		}
+	}
+	
+	public override void _PhysicsProcess(double delta)
+	{
+		Vector2 direction = Input.GetVector("move_left","move_right","move_up","move_down");
+		Position += direction * MoveSpeed * (float)delta;
 	}
 	
 	private void DecayAll(float amount)
