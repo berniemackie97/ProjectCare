@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://dx1r0pobpj17c"]
+[gd_scene load_steps=6 format=4 uid="uid://dx1r0pobpj17c"]
 
 [ext_resource type="Script" uid="uid://dvqff8gjfyo2n" path="res://Scripts/WorldCamera.cs" id="1_r150o"]
 [ext_resource type="Script" uid="uid://ck55itqqh6e12" path="res://Scenes/Pet.cs" id="2_idj7w"]
 [ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/WorldTiles.tres" id="3_kln2b"]
 [ext_resource type="Script" uid="uid://0kamlqe1m7vy" path="res://Scripts/GroundLayer.cs" id="4_rgh2o"]
+[ext_resource type="Texture2D" uid="uid://dhp51rp8rtjt" path="res://Assets/dog_sprite.png" id="5_pbw6q"]
 
 [node name="GameRoot" type="Node2D"]
 
@@ -12,15 +13,21 @@
 [node name="Camera2D" type="Camera2D" parent="World"]
 script = ExtResource("1_r150o")
 
-[node name="Pet" type="Node2D" parent="World"]
-script = ExtResource("2_idj7w")
-StatsLabelPath = NodePath("../../UI/UIRoot/StatsLabel")
-
 [node name="Ground" type="TileMapLayer" parent="World"]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD//wAABQAAAAAAAQD+/wEABQAAAAAAAQD+/wAABQAAAAAAAQD9/wEABQAAAAAAAQD9/wAABQAAAAAAAQD9////BQAAAAAAAQD9//7/BQAAAAAAAQD9//3/BQAAAAAAAQD+//z/BQAAAAAAAQD+//3/BQAAAAAAAQD///z/BQAAAAAAAQD///v/BQAAAAAAAQAAAPz/BQAAAAAAAQA=")
 tile_set = ExtResource("3_kln2b")
 script = ExtResource("4_rgh2o")
+
+[node name="Pet" type="Node2D" parent="World"]
+position = Vector2(-3, -4)
+script = ExtResource("2_idj7w")
+StatsLabelPath = NodePath("../../UI/UIRoot/StatsLabel")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Pet"]
+position = Vector2(4, -4.00001)
+scale = Vector2(0.06625, 0.0725)
+texture = ExtResource("5_pbw6q")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
