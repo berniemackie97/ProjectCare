@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using ProjectCare.Scripts.Enums;
 
 public partial class Pet : Node2D
 {
@@ -41,13 +42,13 @@ public partial class Pet : Node2D
 		UpdateUi();
 	}
 	
-	public void DoTaskBoost(string task, float amount = 10f)
+	public void DoTaskBoost(TaskType task, float amount = 10f)
 	{
 		switch (task)
 		{
-			case "hydrate": Health = Mathf.Min(MaxStat, Health + amount); break;
-			case "stretch": Energy = Mathf.Min(MaxStat, Energy + amount); break;
-			case "journal": Focus  = Mathf.Min(MaxStat, Focus + amount); break;
+			case TaskType.Hydrate: Health = Mathf.Min(MaxStat, Health + amount); break;
+			case TaskType.Stretch: Energy = Mathf.Min(MaxStat, Energy + amount); break;
+			case TaskType.Journal: Focus  = Mathf.Min(MaxStat, Focus + amount); break;
 			default: Happiness = Mathf.Min(MaxStat, Happiness + amount); break;
 		}
 		UpdateUi();
