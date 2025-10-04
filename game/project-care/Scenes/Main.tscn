@@ -19,6 +19,10 @@ tile_map_data = PackedByteArray("AAD//wAABQAAAAAAAQD+/wEABQAAAAAAAQD+/wAABQAAAAA
 tile_set = ExtResource("3_kln2b")
 script = ExtResource("4_rgh2o")
 
+[node name="TileMapLayer" type="TileMapLayer" parent="World"]
+tile_map_data = PackedByteArray("AAD///r/BQAAAAAAAgD+//v/BQAAAAAAAwD+//z/BQAAAAAAAwD9//3/BQAAAAAAAwD9//7/BQAAAAAAAwD8////BQAAAAAAAwD//wQABQAAAAAAAwD//wMABQAAAAAAAwAAAAIABQAAAAAAAwAAAAEABQAAAAAAAwABAAAABQAAAAAAAwABAP//BQAAAAAAAwD///v/BQAAAAAAAgAAAPz/BQAAAAAAAgAAAP3/BQAAAAAAAgABAP7/BQAAAAAAAgD+/wQABQAAAAAAAgD9/wMABQAAAAAAAgD9/wIABQAAAAAAAgD8/wEABQAAAAAAAgD8/wAABQAAAAAAAgA=")
+tile_set = ExtResource("3_kln2b")
+
 [node name="Pet" type="Node2D" parent="World"]
 position = Vector2(-3, -4)
 script = ExtResource("2_idj7w")

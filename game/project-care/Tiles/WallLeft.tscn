@@ -5,3 +5,8 @@
 [node name="WallLeftPoly2D" type="Polygon2D" parent="."]
 color = Color(0.788235, 0.611765, 0.0117647, 1)
 polygon = PackedVector2Array(0, 16, 0, -16, 32, -32, 32, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 32, -16, 32, 0, 0, 16)
