@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://djpt4jumdi77c"]
+
+[node name="WallRight" type="Node2D"]
+
+[node name="WallRightPoly2D" type="Polygon2D" parent="."]
+color = Color(0.788875, 0.610654, 0.0135917, 1)
+polygon = PackedVector2Array(32, 0, 32, -32, 64, -16, 64, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(64, 0, 32, -16, 32, 0, 64, 16)

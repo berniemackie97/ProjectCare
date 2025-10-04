@@ -2,7 +2,7 @@ using Godot;
 using System;
 using ProjectCare.Scripts.Enums;
 
-public partial class Pet : Node2D
+public partial class Pet : CharacterBody2D
 {
 	[Export] public int MaxStat { get; set; } = 100;
 	[Export] public float DecayPerMinute { get; set; } = 2f;
@@ -39,8 +39,9 @@ public partial class Pet : Node2D
 	
 	public override void _PhysicsProcess(double delta)
 	{
-		Vector2 direction = Input.GetVector("move_left","move_right","move_up","move_down");
-		Position += direction * MoveSpeed * (float)delta;
+		Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
+		Velocity = direction * MoveSpeed;
+		MoveAndSlide();
 	}
 	
 	private void DecayAll(float amount)
