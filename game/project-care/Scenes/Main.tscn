@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://dx1r0pobpj17c"]
+[gd_scene load_steps=8 format=4 uid="uid://dx1r0pobpj17c"]
 
 [ext_resource type="Script" uid="uid://dvqff8gjfyo2n" path="res://Scripts/WorldCamera.cs" id="1_r150o"]
 [ext_resource type="Script" uid="uid://ck55itqqh6e12" path="res://Scenes/Pet.cs" id="2_idj7w"]
 [ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/WorldTiles.tres" id="3_kln2b"]
 [ext_resource type="Script" uid="uid://0kamlqe1m7vy" path="res://Scripts/GroundLayer.cs" id="4_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://bkp51v2xsk8mo" path="res://Assets/pet_sprite.png" id="5_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://gkiiyg686khc" path="res://Tiles/Well.tscn" id="6_v1gob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbw6q"]
 size = Vector2(12, 8)
@@ -28,10 +29,18 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD///r/BQAAAAAAAgD+//v/BQAAAAAAAwD+//z/BQAAAAAAAwD9//3/BQAAAAAAAwD9//7/BQAAAAAAAwD//wQABQAAAAAAAwD//wMABQAAAAAAAwAAAAIABQAAAAAAAwABAAAABQAAAAAAAwABAP//BQAAAAAAAwAAAPz/BQAAAAAAAgAAAP3/BQAAAAAAAgABAP7/BQAAAAAAAgD+/wQABQAAAAAAAgD9/wIABQAAAAAAAgD8/wEABQAAAAAAAgAAAAEABQAAAAAAAwD8////BQAAAAAAAwD8/wAABQAAAAAAAgD9/wMABQAAAAAAAgD///v/BQAAAAAAAgA=")
 tile_set = ExtResource("3_kln2b")
 
+[node name="Well" type="Area2D" parent="World"]
+y_sort_enabled = true
+
+[node name="Well" parent="World/Well" instance=ExtResource("6_v1gob")]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-64, -16)
+
 [node name="Pet" type="CharacterBody2D" parent="World"]
 z_index = 1
 z_as_relative = false
-position = Vector2(-3, -4)
+position = Vector2(-60, -4)
 collision_layer = 2
 script = ExtResource("2_idj7w")
 StatsLabelPath = NodePath("../../UI/UIRoot/StatsLabel")

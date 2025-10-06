@@ -1,19 +1,35 @@
 [gd_scene format=3 uid="uid://gkiiyg686khc"]
 
 [node name="Well" type="Node2D"]
+position = Vector2(0, -22)
 
 [node name="WallRightPoly2D" type="Polygon2D" parent="."]
-position = Vector2(0, 1.43051e-06)
-color = Color(0.788875, 0.610654, 0.0135917, 1)
-polygon = PackedVector2Array(32, 0, 32, -32, 64, -16, 64, 16)
+color = Color(1, 0.376471, 0.129412, 1)
+polygon = PackedVector2Array(32, 0, 32, -16, 64, 0, 64, 16)
 
 [node name="WallLeftPoly2D" type="Polygon2D" parent="."]
-position = Vector2(64, 3.33786e-06)
-scale = Vector2(1, 1)
-color = Color(0.788235, 0.611765, 0.0117647, 1)
-polygon = PackedVector2Array(0, 16, 0, -16, 32, -32, 32, 0)
+position = Vector2(64, 0)
+color = Color(1, 0.375205, 0.128965, 1)
+polygon = PackedVector2Array(0, 16, 0, 0, 32, -16, 32, 0)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(32, -48)
-color = Color(0.195368, 0.76532, 0.0797996, 1)
+position = Vector2(32, -32)
+color = Color(1, 0.445397, 0.25341, 1)
 polygon = PackedVector2Array(0, 16, 32, 0, 64, 16, 32, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(32, -8, 64, 8, 64, 16, 32, 0)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(32, 16)
+polygon = PackedVector2Array(32, -8, 64, -24, 64, -16, 32, 0)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(32, -8, 64, -24, 64, -16, 32, 0)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(32, -16)
+polygon = PackedVector2Array(32, -8, 64, 8, 64, 16, 32, 0)
