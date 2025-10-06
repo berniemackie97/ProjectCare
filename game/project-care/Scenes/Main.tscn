@@ -1,13 +1,19 @@
-[gd_scene load_steps=7 format=4 uid="uid://dx1r0pobpj17c"]
+[gd_scene load_steps=11 format=4 uid="uid://dx1r0pobpj17c"]
 
-[ext_resource type="Script" uid="uid://dvqff8gjfyo2n" path="res://Scripts/WorldCamera.cs" id="1_r150o"]
-[ext_resource type="Script" uid="uid://ck55itqqh6e12" path="res://Scenes/Pet.cs" id="2_idj7w"]
+[ext_resource type="Script" uid="uid://knrmlwvc180a" path="res://Scripts/Camera/WorldCamera.cs" id="1_r150o"]
+[ext_resource type="Script" uid="uid://bc4k6p7npo4rg" path="res://Scripts/Player/Pet.cs" id="2_idj7w"]
 [ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/WorldTiles.tres" id="3_kln2b"]
-[ext_resource type="Script" uid="uid://0kamlqe1m7vy" path="res://Scripts/GroundLayer.cs" id="4_rgh2o"]
+[ext_resource type="Script" uid="uid://dvofixeybx6cd" path="res://Scripts/Interactables/WellInteractive.cs" id="4_50glp"]
+[ext_resource type="Script" uid="uid://ct1c285pfy55f" path="res://Scripts/MapLayers/GroundLayer.cs" id="4_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://bkp51v2xsk8mo" path="res://Assets/pet_sprite.png" id="5_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://gkiiyg686khc" path="res://Tiles/Well.tscn" id="6_v1gob"]
+[ext_resource type="Script" uid="uid://etec2k8yuap0" path="res://Scripts/Player/Interactor.cs" id="7_jw32o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbw6q"]
 size = Vector2(12, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jw32o"]
+radius = 12.0
 
 [node name="GameRoot" type="Node2D"]
 
@@ -28,13 +34,37 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD///r/BQAAAAAAAgD+//v/BQAAAAAAAwD+//z/BQAAAAAAAwD9//3/BQAAAAAAAwD9//7/BQAAAAAAAwD//wQABQAAAAAAAwD//wMABQAAAAAAAwAAAAIABQAAAAAAAwABAAAABQAAAAAAAwABAP//BQAAAAAAAwAAAPz/BQAAAAAAAgAAAP3/BQAAAAAAAgABAP7/BQAAAAAAAgD+/wQABQAAAAAAAgD9/wIABQAAAAAAAgD8/wEABQAAAAAAAgAAAAEABQAAAAAAAwD8////BQAAAAAAAwD8/wAABQAAAAAAAgD9/wMABQAAAAAAAgD///v/BQAAAAAAAgA=")
 tile_set = ExtResource("3_kln2b")
 
+[node name="Well" type="Area2D" parent="World"]
+y_sort_enabled = true
+disable_mode = 2
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_50glp")
+HydrationAmount = null
+CooldownSeconds = null
+
+[node name="Well" parent="World/Well" instance=ExtResource("6_v1gob")]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-64, -16)
+
+[node name="WellInteractionArea" type="CollisionPolygon2D" parent="World/Well"]
+position = Vector2(0, -1)
+polygon = PackedVector2Array(-40, -14, -1, 5, 38, -16, -1, -35)
+
 [node name="Pet" type="CharacterBody2D" parent="World"]
 z_index = 1
 z_as_relative = false
-position = Vector2(-3, -4)
+position = Vector2(-60, -4)
 collision_layer = 2
 script = ExtResource("2_idj7w")
+MaxStat = null
+DecayPerMinute = null
 StatsLabelPath = NodePath("../../UI/UIRoot/StatsLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Pet"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_pbw6q")
 
 [node name="Sprite2D" type="Sprite2D" parent="World/Pet"]
 z_as_relative = false
@@ -44,9 +74,18 @@ scale = Vector2(0.06625, 0.0725)
 texture = ExtResource("5_pbw6q")
 centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Pet"]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_pbw6q")
+[node name="Interactor" type="Node2D" parent="World/Pet"]
+script = ExtResource("7_jw32o")
+InteractZonePath = NodePath("InteractorSensor")
+
+[node name="InteractorSensor" type="Area2D" parent="World/Pet/Interactor"]
+disable_mode = 2
+collision_layer = 2
+collision_mask = 4
+
+[node name="InteractorDetectionRadius" type="CollisionShape2D" parent="World/Pet/Interactor/InteractorSensor"]
+position = Vector2(-2, -6)
+shape = SubResource("CircleShape2D_jw32o")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
