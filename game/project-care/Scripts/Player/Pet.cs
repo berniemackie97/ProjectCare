@@ -55,6 +55,7 @@ public partial class Pet : CharacterBody2D
 	
 	public void DoTaskBoost(TaskType task, float amount = 10f)
 	{
+		
 		switch (task)
 		{
 			case TaskType.Hydrate: Health = Mathf.Min(MaxStat, Health + amount); break;
