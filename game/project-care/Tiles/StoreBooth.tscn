@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://fvyey7n1o6jb"]
+
+[node name="StoreBooth" type="Node2D"]
+
+[node name="WallRightPoly2D" type="Polygon2D" parent="."]
+color = Color(0.541176, 0.25098, 0, 1)
+polygon = PackedVector2Array(32, 0, 32, -16, 64, 0, 64, 16)
+
+[node name="WallLeftPoly2D" type="Polygon2D" parent="."]
+position = Vector2(64, 0)
+color = Color(0.541176, 0.25098, 0, 1)
+polygon = PackedVector2Array(0, 16, 0, 0, 32, -16, 32, 0)
+
+[node name="WallRightPoly2D2" type="Polygon2D" parent="."]
+position = Vector2(64, -32)
+color = Color(0.541176, 0.25098, 0, 1)
+polygon = PackedVector2Array(32, 0, 32, -16, 64, 0, 64, 16)
+
+[node name="WallLeftPoly2D2" type="Polygon2D" parent="."]
+position = Vector2(96, -16)
+color = Color(0.541929, 0.249254, 0, 1)
+polygon = PackedVector2Array(0, 16, 0, 0, 32, -16, 32, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+disable_mode = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+polygon = PackedVector2Array(32, -8, 64, 8, 64, 16, 32, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(64, -32)
+polygon = PackedVector2Array(32, -8, 64, 8, 64, 16, 32, 0)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(32, 16)
+polygon = PackedVector2Array(32, -8, 64, -24, 64, -16, 32, 0)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(64, 0)
+polygon = PackedVector2Array(32, -8, 64, -24, 64, -16, 32, 0)

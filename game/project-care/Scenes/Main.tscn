@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dx1r0pobpj17c"]
+[gd_scene load_steps=19 format=4 uid="uid://dx1r0pobpj17c"]
 
 [ext_resource type="Script" uid="uid://knrmlwvc180a" path="res://Scripts/Camera/WorldCamera.cs" id="1_r150o"]
 [ext_resource type="Script" uid="uid://bc4k6p7npo4rg" path="res://Scripts/Player/Pet.cs" id="2_idj7w"]
@@ -6,8 +6,38 @@
 [ext_resource type="Script" uid="uid://dvofixeybx6cd" path="res://Scripts/Interactables/WellInteractive.cs" id="4_50glp"]
 [ext_resource type="Script" uid="uid://ct1c285pfy55f" path="res://Scripts/MapLayers/GroundLayer.cs" id="4_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://bkp51v2xsk8mo" path="res://Assets/pet_sprite.png" id="5_pbw6q"]
+[ext_resource type="Script" uid="uid://02ymuhxi15pa" path="res://Scripts/Interactables/StoreInteractive.cs" id="6_grg3l"]
 [ext_resource type="PackedScene" uid="uid://gkiiyg686khc" path="res://Tiles/Well.tscn" id="6_v1gob"]
+[ext_resource type="Script" uid="uid://mjvobe7xu1mq" path="res://Scripts/Resources/StoreEntry.cs" id="7_frkhe"]
 [ext_resource type="Script" uid="uid://etec2k8yuap0" path="res://Scripts/Player/Interactor.cs" id="7_jw32o"]
+[ext_resource type="Script" uid="uid://bi26rphirla01" path="res://Scripts/Resources/StoreResource.cs" id="8_1p5hy"]
+[ext_resource type="PackedScene" uid="uid://fvyey7n1o6jb" path="res://Tiles/StoreBooth.tscn" id="9_h1m7h"]
+
+[sub_resource type="Resource" id="Resource_erwvk"]
+script = ExtResource("7_frkhe")
+ItemId = "fish"
+Price = 10
+MaxStock = 20
+metadata/_custom_type_script = "uid://mjvobe7xu1mq"
+
+[sub_resource type="Resource" id="Resource_2w5on"]
+script = ExtResource("7_frkhe")
+ItemId = "tomato"
+Price = 3
+MaxStock = 40
+metadata/_custom_type_script = "uid://mjvobe7xu1mq"
+
+[sub_resource type="Resource" id="Resource_346fj"]
+script = ExtResource("7_frkhe")
+ItemId = "bread"
+Price = 4
+MaxStock = 30
+metadata/_custom_type_script = "uid://mjvobe7xu1mq"
+
+[sub_resource type="Resource" id="Resource_0sclb"]
+script = ExtResource("8_1p5hy")
+Items = Array[ExtResource("7_frkhe")]([SubResource("Resource_erwvk"), SubResource("Resource_2w5on"), SubResource("Resource_346fj")])
+metadata/_custom_type_script = "uid://bi26rphirla01"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbw6q"]
 size = Vector2(12, 8)
@@ -25,13 +55,13 @@ script = ExtResource("1_r150o")
 
 [node name="Ground" type="TileMapLayer" parent="World"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD//wAABQAAAAAAAQD+/wEABQAAAAAAAQD+/wAABQAAAAAAAQD9////BQAAAAAAAQD9//7/BQAAAAAAAQD9//3/BQAAAAAAAQD+//z/BQAAAAAAAQD+//3/BQAAAAAAAQD///z/BQAAAAAAAQD///v/BQAAAAAAAQAAAPz/BQAAAAAAAQD+////BQAAAAAAAQD+//7/BQAAAAAAAQD///7/BQAAAAAAAQD///3/BQAAAAAAAQAAAP7/BQAAAAAAAQD+//v/BQAAAAAAAQD///r/BQAAAAAAAQAAAP3/BQAAAAAAAQD/////BQAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD//wAABQAAAAAAAQD+/wEABQAAAAAAAQD+/wAABQAAAAAAAQD9////BQAAAAAAAQD9//7/BQAAAAAAAQD9//3/BQAAAAAAAQD+//z/BQAAAAAAAQD+//3/BQAAAAAAAQD///z/BQAAAAAAAQD///v/BQAAAAAAAQAAAPz/BQAAAAAAAQD+////BQAAAAAAAQD+//7/BQAAAAAAAQD///7/BQAAAAAAAQD///3/BQAAAAAAAQAAAP7/BQAAAAAAAQD+//v/BQAAAAAAAQD///r/BQAAAAAAAQAAAP3/BQAAAAAAAQD/////BQAAAAAAAQD6////BQAAAAAAAQD7/wAABQAAAAAAAQD7/wEABQAAAAAAAQD8/wAABQAAAAAAAQD8/wEABQAAAAAAAQD7////BQAAAAAAAQD8//7/BQAAAAAAAQD7//3/BQAAAAAAAQD8//3/BQAAAAAAAQD9//z/BQAAAAAAAQD9//v/BQAAAAAAAQD+//r/BQAAAAAAAQD+//n/BQAAAAAAAQD+//j/BQAAAAAAAQD9//f/BQAAAAAAAQD9//j/BQAAAAAAAQD8//n/BQAAAAAAAQD8//r/BQAAAAAAAQD8//v/BQAAAAAAAQD8//z/BQAAAAAAAQD7//7/BQAAAAAAAQD6//7/BQAAAAAAAQD6//3/BQAAAAAAAQD7//v/BQAAAAAAAQD7//z/BQAAAAAAAQD9//r/BQAAAAAAAQD9//n/BQAAAAAAAQD9/wAABQAAAAAAAQD9/wIABQAAAAAAAQD9/wEABQAAAAAAAQD+/wIABQAAAAAAAQD8////BQAAAAAAAQD8/wIABQAAAAAAAQD8/wMABQAAAAAAAQD9/wQABQAAAAAAAQD9/wMABQAAAAAAAQA=")
 tile_set = ExtResource("3_kln2b")
 script = ExtResource("4_rgh2o")
 
 [node name="Walls" type="TileMapLayer" parent="World"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD///r/BQAAAAAAAgD+//v/BQAAAAAAAwD+//z/BQAAAAAAAwD9//3/BQAAAAAAAwD9//7/BQAAAAAAAwD//wQABQAAAAAAAwD//wMABQAAAAAAAwAAAAIABQAAAAAAAwABAAAABQAAAAAAAwABAP//BQAAAAAAAwAAAPz/BQAAAAAAAgAAAP3/BQAAAAAAAgABAP7/BQAAAAAAAgD+/wQABQAAAAAAAgD9/wIABQAAAAAAAgD8/wEABQAAAAAAAgAAAAEABQAAAAAAAwD8////BQAAAAAAAwD8/wAABQAAAAAAAgD9/wMABQAAAAAAAgD///v/BQAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAD///r/BQAAAAAAAgD//wQABQAAAAAAAwD//wMABQAAAAAAAwAAAAIABQAAAAAAAwABAAAABQAAAAAAAwABAP//BQAAAAAAAwAAAPz/BQAAAAAAAgAAAP3/BQAAAAAAAgABAP7/BQAAAAAAAgAAAAEABQAAAAAAAwD///v/BQAAAAAAAgD+/wUABQAAAAAAAwD+/wYABQAAAAAAAwD9/wcABQAAAAAAAwD8/wcABQAAAAAAAgD8/wYABQAAAAAAAgD7/wUABQAAAAAAAgD7/wQABQAAAAAAAgD6/wMABQAAAAAAAgD6/wIABQAAAAAAAgD5/wEABQAAAAAAAgD5/wAABQAAAAAAAgD5////BQAAAAAAAwD6//7/BQAAAAAAAwD6//3/BQAAAAAAAwD7//z/BQAAAAAAAwD7//v/BQAAAAAAAwD8//r/BQAAAAAAAwD8//n/BQAAAAAAAwD9//j/BQAAAAAAAwD9//f/BQAAAAAAAwD+//n/BQAAAAAAAgD+//j/BQAAAAAAAgA=")
 tile_set = ExtResource("3_kln2b")
 
 [node name="Well" type="Area2D" parent="World"]
@@ -40,8 +70,6 @@ disable_mode = 2
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("4_50glp")
-HydrationAmount = null
-CooldownSeconds = null
 
 [node name="Well" parent="World/Well" instance=ExtResource("6_v1gob")]
 z_as_relative = false
@@ -52,14 +80,27 @@ position = Vector2(-64, -16)
 position = Vector2(0, -1)
 polygon = PackedVector2Array(-40, -14, -1, 5, 38, -16, -1, -35)
 
+[node name="Store" type="Area2D" parent="World"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("6_grg3l")
+StoreData = SubResource("Resource_0sclb")
+
+[node name="StoreBooth" parent="World/Store" instance=ExtResource("9_h1m7h")]
+position = Vector2(-320, -32)
+
+[node name="StoreInteractiveArea" type="CollisionPolygon2D" parent="World/Store"]
+visible = false
+position = Vector2(41, -20)
+rotation = 0.0045192
+polygon = PackedVector2Array(-339, -7, -298, 17, -214, -30, -254, -49)
+
 [node name="Pet" type="CharacterBody2D" parent="World"]
 z_index = 1
 z_as_relative = false
 position = Vector2(-60, -4)
 collision_layer = 2
 script = ExtResource("2_idj7w")
-MaxStat = null
-DecayPerMinute = null
 StatsLabelPath = NodePath("../../UI/UIRoot/StatsLabel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Pet"]

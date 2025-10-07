@@ -15,8 +15,10 @@ public partial class Pet : CharacterBody2D
 	public float Health { get; private set; }
 	public float Focus { get; private set; }
 	
-	
-	
+	public float Coins { get; private set; }
+
+
+
 	private double _accum;
 	
 	public override void _Ready()
@@ -53,6 +55,8 @@ public partial class Pet : CharacterBody2D
 		UpdateUi();
 	}
 	
+	
+	
 	public void DoTaskBoost(TaskType task, float amount = 10f)
 	{
 		
@@ -65,6 +69,8 @@ public partial class Pet : CharacterBody2D
 		}
 		UpdateUi();
 	}
+	
+
 	
 	private void UpdateUi()
 	{
