@@ -1,0 +1,160 @@
+[gd_scene load_steps=19 format=4 uid="uid://dx1r0pobpj17c"]
+
+[ext_resource type="Script" uid="uid://c72fmtic4fxk6" path="res://Scripts/Camera/WorldCamera.cs" id="1_x4w24"]
+[ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/Tilesets/TownCenter.tres" id="2_ss04b"]
+[ext_resource type="Script" uid="uid://ktgsegcmh3l" path="res://Scripts/MapLayers/GroundLayer.cs" id="3_1w88n"]
+[ext_resource type="Script" uid="uid://c3fr7onsc7eih" path="res://Scripts/Interactables/WellInteractive.cs" id="4_xvnxp"]
+[ext_resource type="PackedScene" uid="uid://gkiiyg686khc" path="res://Tiles/Props/Well.tscn" id="5_g6l08"]
+[ext_resource type="Script" uid="uid://ddej25sv4nxq3" path="res://Scripts/Interactables/StoreInteractive.cs" id="6_oearx"]
+[ext_resource type="Script" uid="uid://rjwuas2rdbk2" path="res://Scripts/Resources/StoreEntry.cs" id="7_56x2v"]
+[ext_resource type="Script" uid="uid://bb4knnp5dioea" path="res://Scripts/Resources/StoreResource.cs" id="8_12cuo"]
+[ext_resource type="PackedScene" uid="uid://fvyey7n1o6jb" path="res://Tiles/Props/StoreBooth.tscn" id="9_lpjho"]
+[ext_resource type="Script" uid="uid://o2wqbo18i87i" path="res://Scripts/Player/Pet.cs" id="10_gnmo0"]
+[ext_resource type="Texture2D" uid="uid://bkp51v2xsk8mo" path="res://Assets/sprites/pet_sprite.png" id="11_d76e8"]
+[ext_resource type="Script" uid="uid://cetkm3uoh45yp" path="res://Scripts/Player/Interactor.cs" id="12_v8s62"]
+
+[sub_resource type="Resource" id="Resource_erwvk"]
+script = ExtResource("7_56x2v")
+ItemId = "fish"
+Price = 10
+metadata/_custom_type_script = "uid://mjvobe7xu1mq"
+
+[sub_resource type="Resource" id="Resource_2w5on"]
+script = ExtResource("7_56x2v")
+ItemId = "tomato"
+Price = 3
+MaxStock = 40
+metadata/_custom_type_script = "uid://mjvobe7xu1mq"
+
+[sub_resource type="Resource" id="Resource_346fj"]
+script = ExtResource("7_56x2v")
+ItemId = "bread"
+Price = 4
+MaxStock = 30
+metadata/_custom_type_script = "uid://mjvobe7xu1mq"
+
+[sub_resource type="Resource" id="Resource_0sclb"]
+script = ExtResource("8_12cuo")
+Items = Array[ExtResource("7_56x2v")]([SubResource("Resource_erwvk"), SubResource("Resource_2w5on"), SubResource("Resource_346fj")])
+metadata/_custom_type_script = "uid://bi26rphirla01"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbw6q"]
+size = Vector2(12, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jw32o"]
+radius = 12.0
+
+[node name="GameRoot" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+script = ExtResource("1_x4w24")
+
+[node name="Ground" type="TileMapLayer" parent="World"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AADy//n/AAAAAAEAAADz//n/AAAAAAEAAADy//r/AAAAAAEAAADz//r/AAAAAAEAAADy//v/AAAAAAEAAADz//v/AAAAAAEAAADy//z/AAAAAAEAAADz//z/AAAAAAEAAADy//3/AAAAAAEAAADz//3/AAAAAAEAAADy//7/AAAAAAEAAADz//7/AAAAAAEAAADy////AAAAAAEAAADz////AAAAAAEAAADy/wAAAAAAAAEAAADz/wAAAAAAAAEAAADy/wEAAAAAAAEAAADz/wEAAAAAAAEAAADy/wIAAAAAAAEAAADz/wIAAAAAAAEAAADy/wMAAAAAAAEAAADz/wMAAAAAAAEAAADy/wQAAAAAAAEAAADz/wQAAAAAAAEAAAD0/wQAAAAAAAEAAAD1/wQAAAAAAAEAAAD2/wQAAAAAAAEAAAD3/wQAAAAAAAEAAAD4/wQAAAAAAAEAAAD5/wQAAAAAAAEAAAD6/wQAAAAAAAEAAAD7/wQAAAAAAAEAAAD8/wQAAAAAAAEAAAD9/wQAAAAAAAEAAAD+/wQAAAAAAAEAAAD//wQAAAAAAAEAAAAAAAQAAAAAAAEAAAABAAQAAAAAAAEAAAACAAQAAAAAAAEAAAADAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAAFAAQAAAAAAAEAAAAGAAQAAAAAAAEAAAAGAAMAAAAAAAEAAAAGAAIAAAAAAAEAAAAGAAEAAAAAAAEAAAAGAAAAAAAAAAEAAAAFAP//AAAAAAEAAAAGAP//AAAAAAEAAAAGAP7/AAAAAAEAAAAFAP3/AAAAAAEAAAAGAP3/AAAAAAEAAAAFAPz/AAAAAAEAAAAGAPz/AAAAAAEAAAAFAPv/AAAAAAEAAAAGAPv/AAAAAAEAAAAFAPr/AAAAAAEAAAAGAPr/AAAAAAEAAAAFAPn/AAAAAAEAAAAGAPn/AAAAAAEAAAAFAPj/AAAAAAEAAAAEAPj/AAAAAAEAAAADAPj/AAAAAAEAAAACAPj/AAAAAAEAAAABAPj/AAAAAAEAAAAAAPj/AAAAAAEAAAD///j/AAAAAAEAAAD+//j/AAAAAAEAAAD9//j/AAAAAAEAAAD8//n/AAAAAAEAAAD7//j/AAAAAAEAAAD6//n/AAAAAAEAAAD5//j/AAAAAAEAAAD4//n/AAAAAAEAAAD3//j/AAAAAAEAAAD2//n/AAAAAAEAAAD1//j/AAAAAAEAAAD0//n/AAAAAAEAAADz//j/AAAAAAEAAAD2//j/AAAAAAEAAAD4//j/AAAAAAEAAAD6//j/AAAAAAEAAAD8//j/AAAAAAEAAAD4/wEAAAAAAAEAAAD5/wAAAAAAAAEAAAD6/wAAAAAAAAEAAAD7////AAAAAAEAAAD8////AAAAAAEAAAD9//7/AAAAAAEAAAD+//7/AAAAAAEAAAD///3/AAAAAAEAAAAAAP3/AAAAAAEAAAABAPz/AAAAAAEAAAACAPz/AAAAAAEAAAADAPv/AAAAAAEAAAAEAPv/AAAAAAEAAAADAPr/AAAAAAEAAAAEAPr/AAAAAAEAAAADAPn/AAAAAAEAAAAEAPn/AAAAAAEAAAACAPn/AAAAAAEAAAABAPn/AAAAAAEAAAAAAPn/AAAAAAEAAAD///n/AAAAAAEAAAD+//n/AAAAAAEAAAD9//n/AAAAAAEAAAD8//r/AAAAAAEAAAD7//n/AAAAAAEAAAD6//r/AAAAAAEAAAD5//n/AAAAAAEAAAD4//r/AAAAAAEAAAD3//n/AAAAAAEAAAD2//r/AAAAAAEAAAD1//n/AAAAAAEAAAD0//r/AAAAAAEAAAD1//r/AAAAAAEAAAD0//v/AAAAAAEAAAD1//v/AAAAAAEAAAD2//v/AAAAAAEAAAD3//r/AAAAAAEAAAD4//v/AAAAAAEAAAD5//r/AAAAAAEAAAD6//v/AAAAAAEAAAD7//r/AAAAAAEAAAD8//v/AAAAAAEAAAD9//r/AAAAAAEAAAD+//r/AAAAAAEAAAD///r/AAAAAAEAAAAAAPr/AAAAAAEAAAABAPr/AAAAAAEAAAACAPr/AAAAAAEAAAAAAPv/AAAAAAEAAAD///v/AAAAAAEAAAD+//v/AAAAAAEAAAD9//v/AAAAAAEAAAD8//z/AAAAAAEAAAD7//v/AAAAAAEAAAD6//z/AAAAAAEAAAD5//v/AAAAAAEAAAD4//z/AAAAAAEAAAD3//v/AAAAAAEAAAD2//z/AAAAAAEAAAD1//z/AAAAAAEAAAD0//z/AAAAAAEAAAD0//3/AAAAAAEAAAD1//3/AAAAAAEAAAD2//3/AAAAAAEAAAD3//z/AAAAAAEAAAD4//3/AAAAAAEAAAD5//z/AAAAAAEAAAD6//3/AAAAAAEAAAD7//z/AAAAAAEAAAD8//3/AAAAAAEAAAD9//z/AAAAAAEAAAD+//z/AAAAAAEAAAD///z/AAAAAAEAAAAAAPz/AAAAAAEAAAABAPv/AAAAAAEAAAACAPv/AAAAAAEAAAD+//3/AAAAAAEAAAD9//3/AAAAAAEAAAD8//7/AAAAAAEAAAD7//3/AAAAAAEAAAD6//7/AAAAAAEAAAD5//3/AAAAAAEAAAD4//7/AAAAAAEAAAD3//3/AAAAAAEAAAD2//7/AAAAAAEAAAD1//7/AAAAAAEAAAD0//7/AAAAAAEAAAD0////AAAAAAEAAAD1////AAAAAAEAAAD2////AAAAAAEAAAD3//7/AAAAAAEAAAD4////AAAAAAEAAAD5//7/AAAAAAEAAAD6////AAAAAAEAAAD7//7/AAAAAAEAAAD5////AAAAAAEAAAD4/wAAAAAAAAEAAAD3////AAAAAAEAAAD2/wAAAAAAAAEAAAD1/wAAAAAAAAEAAAD0/wAAAAAAAAEAAAD0/wEAAAAAAAEAAAD1/wEAAAAAAAEAAAD2/wEAAAAAAAEAAAD3/wAAAAAAAAEAAAD3/wEAAAAAAAEAAAD2/wIAAAAAAAEAAAD1/wIAAAAAAAEAAAD0/wIAAAAAAAEAAAD0/wMAAAAAAAEAAAD1/wMAAAAAAAEAAAD2/wMAAAAAAAEAAAD3/wIAAAAAAAEAAAD4/wIAAAAAAAEAAAD5/wEAAAAAAAEAAAD6/wEAAAAAAAEAAAD7/wAAAAAAAAEAAAD8/wAAAAAAAAEAAAD9////AAAAAAEAAAD+////AAAAAAEAAAD///7/AAAAAAEAAAAAAP7/AAAAAAEAAAABAP3/AAAAAAEAAAACAP3/AAAAAAEAAAADAPz/AAAAAAEAAAAEAPz/AAAAAAEAAAAEAP3/AAAAAAEAAAADAP3/AAAAAAEAAAACAP7/AAAAAAEAAAABAP7/AAAAAAEAAAAAAP//AAAAAAEAAAD/////AAAAAAEAAAD+/wAAAAAAAAEAAAD9/wAAAAAAAAEAAAD8/wEAAAAAAAEAAAD7/wEAAAAAAAEAAAD6/wIAAAAAAAEAAAD5/wIAAAAAAAEAAAD4/wMAAAAAAAEAAAD3/wMAAAAAAAEAAAD5/wMAAAAAAAEAAAD6/wMAAAAAAAEAAAD7/wIAAAAAAAEAAAD8/wIAAAAAAAEAAAD9/wEAAAAAAAEAAAD+/wEAAAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAABAP//AAAAAAEAAAACAP//AAAAAAEAAAADAP7/AAAAAAEAAAAEAP7/AAAAAAEAAAAFAP7/AAAAAAEAAAAEAP//AAAAAAEAAAADAP//AAAAAAEAAAACAAAAAAAAAAEAAAABAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAD//wEAAAAAAAEAAAD+/wIAAAAAAAEAAAD9/wIAAAAAAAEAAAD8/wMAAAAAAAEAAAD7/wMAAAAAAAEAAAD9/wMAAAAAAAEAAAD+/wMAAAAAAAEAAAD//wIAAAAAAAEAAAAAAAIAAAAAAAEAAAABAAEAAAAAAAEAAAACAAEAAAAAAAEAAAADAAAAAAAAAAEAAAAEAAAAAAAAAAEAAAAFAAAAAAAAAAEAAAAEAAEAAAAAAAEAAAADAAEAAAAAAAEAAAACAAIAAAAAAAEAAAABAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAD//wMAAAAAAAEAAAABAAMAAAAAAAEAAAACAAMAAAAAAAEAAAADAAIAAAAAAAEAAAAEAAIAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAIAAAAAAAEAAAAEAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAQAAAAAAAEAAAAFAAMAAAAAAAEAAAA=")
+tile_set = ExtResource("2_ss04b")
+script = ExtResource("3_1w88n")
+
+[node name="Walls" type="TileMapLayer" parent="World"]
+y_sort_enabled = true
+tile_set = ExtResource("2_ss04b")
+
+[node name="Well" type="Area2D" parent="World"]
+visible = false
+y_sort_enabled = true
+disable_mode = 2
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_xvnxp")
+
+[node name="Well" parent="World/Well" instance=ExtResource("5_g6l08")]
+visible = false
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-64, -16)
+
+[node name="WellInteractionArea" type="CollisionPolygon2D" parent="World/Well"]
+visible = false
+position = Vector2(0, -1)
+polygon = PackedVector2Array(-40, -14, -1, 5, 38, -16, -1, -35)
+
+[node name="Store" type="Area2D" parent="World"]
+visible = false
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("6_oearx")
+StoreData = SubResource("Resource_0sclb")
+
+[node name="StoreBooth" parent="World/Store" instance=ExtResource("9_lpjho")]
+visible = false
+position = Vector2(-320, -32)
+
+[node name="StoreInteractiveArea" type="CollisionPolygon2D" parent="World/Store"]
+visible = false
+position = Vector2(41, -20)
+rotation = 0.0045192
+polygon = PackedVector2Array(-339, -7, -298, 17, -214, -30, -254, -49)
+
+[node name="Pet" type="CharacterBody2D" parent="World"]
+z_index = 1
+z_as_relative = false
+position = Vector2(-60, -4)
+collision_layer = 2
+script = ExtResource("10_gnmo0")
+StatsLabelPath = NodePath("../../UI/UIRoot/StatsLabel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Pet"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_pbw6q")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Pet"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-13, -27)
+scale = Vector2(0.06625, 0.0725)
+texture = ExtResource("11_d76e8")
+centered = false
+
+[node name="Interactor" type="Node2D" parent="World/Pet"]
+script = ExtResource("12_v8s62")
+InteractZonePath = NodePath("InteractorSensor")
+
+[node name="InteractorSensor" type="Area2D" parent="World/Pet/Interactor"]
+disable_mode = 2
+collision_layer = 2
+collision_mask = 4
+
+[node name="InteractorDetectionRadius" type="CollisionShape2D" parent="World/Pet/Interactor/InteractorSensor"]
+position = Vector2(-2, -6)
+shape = SubResource("CircleShape2D_jw32o")
+
+[node name="Buildings_South" type="TileMapLayer" parent="World"]
+z_index = 20
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD3//j/BQAAAAAAAAABAPj/BQAAAAIAAAA=")
+tile_set = ExtResource("2_ss04b")
+
+[node name="Props" type="TileMapLayer" parent="World"]
+z_index = 20
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD2//r/AgAAAAAAAAD0//n/AgACAAAAAAD5//r/AQABAAYAAAD5//n/AQABAAUAAAD5//j/AQABAAQAAAD6//r/AQACAAUAAAD+//7/AQABAAIAAAD8//7/AQAAAAIAAAD8//3/AQAAAAEAAAD+//3/AQABAAEAAAA=")
+tile_set = ExtResource("2_ss04b")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="UIRoot" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StatsLabel" type="Label" parent="UI/UIRoot"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 91.0
+offset_bottom = 39.0
+text = "Loading..."
