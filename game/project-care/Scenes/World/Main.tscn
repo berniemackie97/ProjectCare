@@ -1,42 +1,14 @@
-[gd_scene load_steps=19 format=4 uid="uid://dx1r0pobpj17c"]
+[gd_scene load_steps=12 format=4 uid="uid://dx1r0pobpj17c"]
 
 [ext_resource type="Script" uid="uid://c72fmtic4fxk6" path="res://Scripts/Camera/WorldCamera.cs" id="1_x4w24"]
 [ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/Tilesets/TownCenter.tres" id="2_ss04b"]
 [ext_resource type="Script" uid="uid://ktgsegcmh3l" path="res://Scripts/MapLayers/GroundLayer.cs" id="3_1w88n"]
-[ext_resource type="Script" uid="uid://c3fr7onsc7eih" path="res://Scripts/Interactables/WellInteractive.cs" id="4_xvnxp"]
-[ext_resource type="PackedScene" uid="uid://gkiiyg686khc" path="res://Tiles/Props/Well.tscn" id="5_g6l08"]
-[ext_resource type="Script" uid="uid://ddej25sv4nxq3" path="res://Scripts/Interactables/StoreInteractive.cs" id="6_oearx"]
-[ext_resource type="Script" uid="uid://rjwuas2rdbk2" path="res://Scripts/Resources/StoreEntry.cs" id="7_56x2v"]
-[ext_resource type="Script" uid="uid://bb4knnp5dioea" path="res://Scripts/Resources/StoreResource.cs" id="8_12cuo"]
-[ext_resource type="PackedScene" uid="uid://fvyey7n1o6jb" path="res://Tiles/Props/StoreBooth.tscn" id="9_lpjho"]
+[ext_resource type="PackedScene" uid="uid://b2wi6ekurxepi" path="res://Tiles/Interactable/SmallShop.tscn" id="7_kfoje"]
+[ext_resource type="PackedScene" uid="uid://c02j1n1gihwt7" path="res://Tiles/Interactable/LargeShop.tscn" id="9_kfoje"]
+[ext_resource type="PackedScene" uid="uid://mhk2b3dmnp2i" path="res://Tiles/Interactable/Well.tscn" id="9_kibkm"]
 [ext_resource type="Script" uid="uid://o2wqbo18i87i" path="res://Scripts/Player/Pet.cs" id="10_gnmo0"]
 [ext_resource type="Texture2D" uid="uid://bkp51v2xsk8mo" path="res://Assets/sprites/pet_sprite.png" id="11_d76e8"]
 [ext_resource type="Script" uid="uid://cetkm3uoh45yp" path="res://Scripts/Player/Interactor.cs" id="12_v8s62"]
-
-[sub_resource type="Resource" id="Resource_erwvk"]
-script = ExtResource("7_56x2v")
-ItemId = "fish"
-Price = 10
-metadata/_custom_type_script = "uid://mjvobe7xu1mq"
-
-[sub_resource type="Resource" id="Resource_2w5on"]
-script = ExtResource("7_56x2v")
-ItemId = "tomato"
-Price = 3
-MaxStock = 40
-metadata/_custom_type_script = "uid://mjvobe7xu1mq"
-
-[sub_resource type="Resource" id="Resource_346fj"]
-script = ExtResource("7_56x2v")
-ItemId = "bread"
-Price = 4
-MaxStock = 30
-metadata/_custom_type_script = "uid://mjvobe7xu1mq"
-
-[sub_resource type="Resource" id="Resource_0sclb"]
-script = ExtResource("8_12cuo")
-Items = Array[ExtResource("7_56x2v")]([SubResource("Resource_erwvk"), SubResource("Resource_2w5on"), SubResource("Resource_346fj")])
-metadata/_custom_type_script = "uid://bi26rphirla01"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbw6q"]
 size = Vector2(12, 8)
@@ -62,42 +34,6 @@ script = ExtResource("3_1w88n")
 y_sort_enabled = true
 tile_set = ExtResource("2_ss04b")
 
-[node name="Well" type="Area2D" parent="World"]
-visible = false
-y_sort_enabled = true
-disable_mode = 2
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("4_xvnxp")
-
-[node name="Well" parent="World/Well" instance=ExtResource("5_g6l08")]
-visible = false
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(-64, -16)
-
-[node name="WellInteractionArea" type="CollisionPolygon2D" parent="World/Well"]
-visible = false
-position = Vector2(0, -1)
-polygon = PackedVector2Array(-40, -14, -1, 5, 38, -16, -1, -35)
-
-[node name="Store" type="Area2D" parent="World"]
-visible = false
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("6_oearx")
-StoreData = SubResource("Resource_0sclb")
-
-[node name="StoreBooth" parent="World/Store" instance=ExtResource("9_lpjho")]
-visible = false
-position = Vector2(-320, -32)
-
-[node name="StoreInteractiveArea" type="CollisionPolygon2D" parent="World/Store"]
-visible = false
-position = Vector2(41, -20)
-rotation = 0.0045192
-polygon = PackedVector2Array(-339, -7, -298, 17, -214, -30, -254, -49)
-
 [node name="Pet" type="CharacterBody2D" parent="World"]
 z_index = 1
 z_as_relative = false
@@ -111,7 +47,7 @@ position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_pbw6q")
 
 [node name="Sprite2D" type="Sprite2D" parent="World/Pet"]
-z_as_relative = false
+z_index = 1
 y_sort_enabled = true
 position = Vector2(-13, -27)
 scale = Vector2(0.06625, 0.0725)
@@ -131,16 +67,30 @@ collision_mask = 4
 position = Vector2(-2, -6)
 shape = SubResource("CircleShape2D_jw32o")
 
-[node name="Buildings_South" type="TileMapLayer" parent="World"]
-z_index = 20
+[node name="Interactables" type="Node2D" parent="World"]
+z_index = 10
+z_as_relative = false
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD3//j/BQAAAAAAAAABAPj/BQAAAAIAAAA=")
-tile_set = ExtResource("2_ss04b")
 
-[node name="Props" type="TileMapLayer" parent="World"]
-z_index = 20
+[node name="SmallShop" parent="World" instance=ExtResource("7_kfoje")]
+z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD2//r/AgAAAAAAAAD0//n/AgACAAAAAAD5//r/AQABAAYAAAD5//n/AQABAAUAAAD5//j/AQABAAQAAAD6//r/AQACAAUAAAD+//7/AQABAAIAAAD8//7/AQAAAAIAAAD8//3/AQAAAAEAAAD+//3/AQABAAEAAAA=")
+position = Vector2(38, -222)
+
+[node name="Well" parent="World" instance=ExtResource("9_kibkm")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-94, -37)
+
+[node name="LargeShop" parent="World" instance=ExtResource("9_kfoje")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-261, -225)
+
+[node name="Props" type="TileMapLayer" parent="."]
+z_index = 1
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD0//n/AgACAAAAAAD5//r/AQABAAYAAAD5//n/AQABAAUAAAD5//j/AQABAAQAAAD6//r/AQACAAUAAAA=")
 tile_set = ExtResource("2_ss04b")
 
 [node name="UI" type="CanvasLayer" parent="."]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c02j1n1gihwt7"]
+
+[ext_resource type="Script" uid="uid://ddej25sv4nxq3" path="res://Scripts/Interactables/StoreInteractive.cs" id="1_qjw5o"]
+[ext_resource type="Texture2D" uid="uid://bwvsow1nuclre" path="res://Assets/Tiles/town_center_buildings_from_refs_128.png" id="2_pt5g2"]
+
+[node name="LargeShop" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("2_pt5g2")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+z_index = 1
+polygon = PackedVector2Array(-49, 61, 56, 61, 56, -11, -49, -11)
+
+[node name="StoreArea2D" type="Area2D" parent="."]
+disable_mode = 2
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_qjw5o")
+
+[node name="StoreInteractiveArea" type="CollisionPolygon2D" parent="StoreArea2D"]
+position = Vector2(3, 0)
+polygon = PackedVector2Array(-69, 18, -69, 18, 68, 19, 68, 78, -69, 78)
