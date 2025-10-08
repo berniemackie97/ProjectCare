@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dx1r0pobpj17c"]
+[gd_scene load_steps=13 format=4 uid="uid://dx1r0pobpj17c"]
 
 [ext_resource type="Script" uid="uid://c72fmtic4fxk6" path="res://Scripts/Camera/WorldCamera.cs" id="1_x4w24"]
 [ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/Tilesets/TownCenter.tres" id="2_ss04b"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c02j1n1gihwt7" path="res://Tiles/Interactable/LargeShop.tscn" id="9_kfoje"]
 [ext_resource type="PackedScene" uid="uid://mhk2b3dmnp2i" path="res://Tiles/Interactable/Well.tscn" id="9_kibkm"]
 [ext_resource type="Script" uid="uid://o2wqbo18i87i" path="res://Scripts/Player/Pet.cs" id="10_gnmo0"]
+[ext_resource type="PackedScene" uid="uid://dpr2mh4qromkb" path="res://Tiles/Interactable/Barrel.tscn" id="10_kibkm"]
 [ext_resource type="Texture2D" uid="uid://bkp51v2xsk8mo" path="res://Assets/sprites/pet_sprite.png" id="11_d76e8"]
 [ext_resource type="Script" uid="uid://cetkm3uoh45yp" path="res://Scripts/Player/Interactor.cs" id="12_v8s62"]
 
@@ -67,11 +68,6 @@ collision_mask = 4
 position = Vector2(-2, -6)
 shape = SubResource("CircleShape2D_jw32o")
 
-[node name="Interactables" type="Node2D" parent="World"]
-z_index = 10
-z_as_relative = false
-y_sort_enabled = true
-
 [node name="SmallShop" parent="World" instance=ExtResource("7_kfoje")]
 z_index = 1
 y_sort_enabled = true
@@ -87,10 +83,13 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-261, -225)
 
+[node name="Barrel" parent="World" instance=ExtResource("10_kibkm")]
+position = Vector2(-355, -181)
+
 [node name="Props" type="TileMapLayer" parent="."]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD0//n/AgACAAAAAAD5//r/AQABAAYAAAD5//n/AQABAAUAAAD5//j/AQABAAQAAAD6//r/AQACAAUAAAA=")
+tile_map_data = PackedByteArray("AAD5//r/AQABAAYAAAD5//n/AQABAAUAAAD5//j/AQABAAQAAAD6//r/AQACAAUAAAA=")
 tile_set = ExtResource("2_ss04b")
 
 [node name="UI" type="CanvasLayer" parent="."]
