@@ -1,109 +1,109 @@
-[gd_scene load_steps=13 format=4 uid="uid://dx1r0pobpj17c"]
+[gd_scene load_steps=13 format=4 uid="uid://nc2ohx252h0y"]
 
-[ext_resource type="Script" uid="uid://c72fmtic4fxk6" path="res://Scripts/Camera/WorldCamera.cs" id="1_x4w24"]
-[ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/Tilesets/TownCenter.tres" id="2_ss04b"]
-[ext_resource type="Script" uid="uid://ktgsegcmh3l" path="res://Scripts/MapLayers/GroundLayer.cs" id="3_1w88n"]
-[ext_resource type="PackedScene" uid="uid://b2wi6ekurxepi" path="res://Tiles/Interactable/SmallShop.tscn" id="7_kfoje"]
-[ext_resource type="PackedScene" uid="uid://c02j1n1gihwt7" path="res://Tiles/Interactable/LargeShop.tscn" id="9_kfoje"]
-[ext_resource type="PackedScene" uid="uid://mhk2b3dmnp2i" path="res://Tiles/Interactable/Well.tscn" id="9_kibkm"]
-[ext_resource type="Script" uid="uid://o2wqbo18i87i" path="res://Scripts/Player/Pet.cs" id="10_gnmo0"]
-[ext_resource type="PackedScene" uid="uid://dpr2mh4qromkb" path="res://Tiles/Interactable/Barrel.tscn" id="10_kibkm"]
-[ext_resource type="Texture2D" uid="uid://bkp51v2xsk8mo" path="res://Assets/sprites/pet_sprite.png" id="11_d76e8"]
-[ext_resource type="Script" uid="uid://cetkm3uoh45yp" path="res://Scripts/Player/Interactor.cs" id="12_v8s62"]
+[ext_resource type="Script" uid="uid://c72fmtic4fxk6" path="res://Scripts/Camera/WorldCamera.cs" id="1_3586x"]
+[ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/Tilesets/TownCenter.tres" id="2_10ki7"]
+[ext_resource type="Script" uid="uid://ktgsegcmh3l" path="res://Scripts/MapLayers/GroundLayer.cs" id="3_ti1oi"]
+[ext_resource type="Script" uid="uid://o2wqbo18i87i" path="res://Scripts/Player/Pet.cs" id="4_edkrd"]
+[ext_resource type="Texture2D" uid="uid://bkp51v2xsk8mo" path="res://Assets/sprites/pet_sprite.png" id="5_bsqcq"]
+[ext_resource type="Script" uid="uid://cetkm3uoh45yp" path="res://Scripts/Player/Interactor.cs" id="6_jf0ra"]
+[ext_resource type="PackedScene" uid="uid://b2wi6ekurxepi" path="res://Tiles/Interactable/SmallShop.tscn" id="7_fg52j"]
+[ext_resource type="PackedScene" uid="uid://mhk2b3dmnp2i" path="res://Tiles/Interactable/Well.tscn" id="8_6581v"]
+[ext_resource type="PackedScene" uid="uid://c02j1n1gihwt7" path="res://Tiles/Interactable/LargeShop.tscn" id="9_6hht6"]
+[ext_resource type="PackedScene" uid="uid://dpr2mh4qromkb" path="res://Tiles/Interactable/Barrel.tscn" id="10_kjp6r"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbw6q"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hno3"]
 size = Vector2(12, 8)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jw32o"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_88irt"]
 radius = 12.0
 
-[node name="GameRoot" type="Node2D"]
-
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="Node2D"]
 y_sort_enabled = true
 
-[node name="Camera2D" type="Camera2D" parent="World"]
-script = ExtResource("1_x4w24")
+[node name="Camera2D2" type="Camera2D" parent="."]
+script = ExtResource("1_3586x")
 
-[node name="Ground" type="TileMapLayer" parent="World"]
+[node name="Ground2" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AADy//n/AAAAAAEAAADz//n/AAAAAAEAAADy//r/AAAAAAEAAADz//r/AAAAAAEAAADy//v/AAAAAAEAAADz//v/AAAAAAEAAADy//z/AAAAAAEAAADz//z/AAAAAAEAAADy//3/AAAAAAEAAADz//3/AAAAAAEAAADy//7/AAAAAAEAAADz//7/AAAAAAEAAADy////AAAAAAEAAADz////AAAAAAEAAADy/wAAAAAAAAEAAADz/wAAAAAAAAEAAADy/wEAAAAAAAEAAADz/wEAAAAAAAEAAADy/wIAAAAAAAEAAADz/wIAAAAAAAEAAADy/wMAAAAAAAEAAADz/wMAAAAAAAEAAADy/wQAAAAAAAEAAADz/wQAAAAAAAEAAAD0/wQAAAAAAAEAAAD1/wQAAAAAAAEAAAD2/wQAAAAAAAEAAAD3/wQAAAAAAAEAAAD4/wQAAAAAAAEAAAD5/wQAAAAAAAEAAAD6/wQAAAAAAAEAAAD7/wQAAAAAAAEAAAD8/wQAAAAAAAEAAAD9/wQAAAAAAAEAAAD+/wQAAAAAAAEAAAD//wQAAAAAAAEAAAAAAAQAAAAAAAEAAAABAAQAAAAAAAEAAAACAAQAAAAAAAEAAAADAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAAFAAQAAAAAAAEAAAAGAAQAAAAAAAEAAAAGAAMAAAAAAAEAAAAGAAIAAAAAAAEAAAAGAAEAAAAAAAEAAAAGAAAAAAAAAAEAAAAFAP//AAAAAAEAAAAGAP//AAAAAAEAAAAGAP7/AAAAAAEAAAAFAP3/AAAAAAEAAAAGAP3/AAAAAAEAAAAFAPz/AAAAAAEAAAAGAPz/AAAAAAEAAAAFAPv/AAAAAAEAAAAGAPv/AAAAAAEAAAAFAPr/AAAAAAEAAAAGAPr/AAAAAAEAAAAFAPn/AAAAAAEAAAAGAPn/AAAAAAEAAAAFAPj/AAAAAAEAAAAEAPj/AAAAAAEAAAADAPj/AAAAAAEAAAACAPj/AAAAAAEAAAABAPj/AAAAAAEAAAAAAPj/AAAAAAEAAAD///j/AAAAAAEAAAD+//j/AAAAAAEAAAD9//j/AAAAAAEAAAD8//n/AAAAAAEAAAD7//j/AAAAAAEAAAD6//n/AAAAAAEAAAD5//j/AAAAAAEAAAD4//n/AAAAAAEAAAD3//j/AAAAAAEAAAD2//n/AAAAAAEAAAD1//j/AAAAAAEAAAD0//n/AAAAAAEAAADz//j/AAAAAAEAAAD2//j/AAAAAAEAAAD4//j/AAAAAAEAAAD6//j/AAAAAAEAAAD8//j/AAAAAAEAAAD4/wEAAAAAAAEAAAD5/wAAAAAAAAEAAAD6/wAAAAAAAAEAAAD7////AAAAAAEAAAD8////AAAAAAEAAAD9//7/AAAAAAEAAAD+//7/AAAAAAEAAAD///3/AAAAAAEAAAAAAP3/AAAAAAEAAAABAPz/AAAAAAEAAAACAPz/AAAAAAEAAAADAPv/AAAAAAEAAAAEAPv/AAAAAAEAAAADAPr/AAAAAAEAAAAEAPr/AAAAAAEAAAADAPn/AAAAAAEAAAAEAPn/AAAAAAEAAAACAPn/AAAAAAEAAAABAPn/AAAAAAEAAAAAAPn/AAAAAAEAAAD///n/AAAAAAEAAAD+//n/AAAAAAEAAAD9//n/AAAAAAEAAAD8//r/AAAAAAEAAAD7//n/AAAAAAEAAAD6//r/AAAAAAEAAAD5//n/AAAAAAEAAAD4//r/AAAAAAEAAAD3//n/AAAAAAEAAAD2//r/AAAAAAEAAAD1//n/AAAAAAEAAAD0//r/AAAAAAEAAAD1//r/AAAAAAEAAAD0//v/AAAAAAEAAAD1//v/AAAAAAEAAAD2//v/AAAAAAEAAAD3//r/AAAAAAEAAAD4//v/AAAAAAEAAAD5//r/AAAAAAEAAAD6//v/AAAAAAEAAAD7//r/AAAAAAEAAAD8//v/AAAAAAEAAAD9//r/AAAAAAEAAAD+//r/AAAAAAEAAAD///r/AAAAAAEAAAAAAPr/AAAAAAEAAAABAPr/AAAAAAEAAAACAPr/AAAAAAEAAAAAAPv/AAAAAAEAAAD///v/AAAAAAEAAAD+//v/AAAAAAEAAAD9//v/AAAAAAEAAAD8//z/AAAAAAEAAAD7//v/AAAAAAEAAAD6//z/AAAAAAEAAAD5//v/AAAAAAEAAAD4//z/AAAAAAEAAAD3//v/AAAAAAEAAAD2//z/AAAAAAEAAAD1//z/AAAAAAEAAAD0//z/AAAAAAEAAAD0//3/AAAAAAEAAAD1//3/AAAAAAEAAAD2//3/AAAAAAEAAAD3//z/AAAAAAEAAAD4//3/AAAAAAEAAAD5//z/AAAAAAEAAAD6//3/AAAAAAEAAAD7//z/AAAAAAEAAAD8//3/AAAAAAEAAAD9//z/AAAAAAEAAAD+//z/AAAAAAEAAAD///z/AAAAAAEAAAAAAPz/AAAAAAEAAAABAPv/AAAAAAEAAAACAPv/AAAAAAEAAAD+//3/AAAAAAEAAAD9//3/AAAAAAEAAAD8//7/AAAAAAEAAAD7//3/AAAAAAEAAAD6//7/AAAAAAEAAAD5//3/AAAAAAEAAAD4//7/AAAAAAEAAAD3//3/AAAAAAEAAAD2//7/AAAAAAEAAAD1//7/AAAAAAEAAAD0//7/AAAAAAEAAAD0////AAAAAAEAAAD1////AAAAAAEAAAD2////AAAAAAEAAAD3//7/AAAAAAEAAAD4////AAAAAAEAAAD5//7/AAAAAAEAAAD6////AAAAAAEAAAD7//7/AAAAAAEAAAD5////AAAAAAEAAAD4/wAAAAAAAAEAAAD3////AAAAAAEAAAD2/wAAAAAAAAEAAAD1/wAAAAAAAAEAAAD0/wAAAAAAAAEAAAD0/wEAAAAAAAEAAAD1/wEAAAAAAAEAAAD2/wEAAAAAAAEAAAD3/wAAAAAAAAEAAAD3/wEAAAAAAAEAAAD2/wIAAAAAAAEAAAD1/wIAAAAAAAEAAAD0/wIAAAAAAAEAAAD0/wMAAAAAAAEAAAD1/wMAAAAAAAEAAAD2/wMAAAAAAAEAAAD3/wIAAAAAAAEAAAD4/wIAAAAAAAEAAAD5/wEAAAAAAAEAAAD6/wEAAAAAAAEAAAD7/wAAAAAAAAEAAAD8/wAAAAAAAAEAAAD9////AAAAAAEAAAD+////AAAAAAEAAAD///7/AAAAAAEAAAAAAP7/AAAAAAEAAAABAP3/AAAAAAEAAAACAP3/AAAAAAEAAAADAPz/AAAAAAEAAAAEAPz/AAAAAAEAAAAEAP3/AAAAAAEAAAADAP3/AAAAAAEAAAACAP7/AAAAAAEAAAABAP7/AAAAAAEAAAAAAP//AAAAAAEAAAD/////AAAAAAEAAAD+/wAAAAAAAAEAAAD9/wAAAAAAAAEAAAD8/wEAAAAAAAEAAAD7/wEAAAAAAAEAAAD6/wIAAAAAAAEAAAD5/wIAAAAAAAEAAAD4/wMAAAAAAAEAAAD3/wMAAAAAAAEAAAD5/wMAAAAAAAEAAAD6/wMAAAAAAAEAAAD7/wIAAAAAAAEAAAD8/wIAAAAAAAEAAAD9/wEAAAAAAAEAAAD+/wEAAAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAABAP//AAAAAAEAAAACAP//AAAAAAEAAAADAP7/AAAAAAEAAAAEAP7/AAAAAAEAAAAFAP7/AAAAAAEAAAAEAP//AAAAAAEAAAADAP//AAAAAAEAAAACAAAAAAAAAAEAAAABAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAD//wEAAAAAAAEAAAD+/wIAAAAAAAEAAAD9/wIAAAAAAAEAAAD8/wMAAAAAAAEAAAD7/wMAAAAAAAEAAAD9/wMAAAAAAAEAAAD+/wMAAAAAAAEAAAD//wIAAAAAAAEAAAAAAAIAAAAAAAEAAAABAAEAAAAAAAEAAAACAAEAAAAAAAEAAAADAAAAAAAAAAEAAAAEAAAAAAAAAAEAAAAFAAAAAAAAAAEAAAAEAAEAAAAAAAEAAAADAAEAAAAAAAEAAAACAAIAAAAAAAEAAAABAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAD//wMAAAAAAAEAAAABAAMAAAAAAAEAAAACAAMAAAAAAAEAAAADAAIAAAAAAAEAAAAEAAIAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAIAAAAAAAEAAAAEAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAQAAAAAAAEAAAAFAAMAAAAAAAEAAAA=")
-tile_set = ExtResource("2_ss04b")
-script = ExtResource("3_1w88n")
+tile_set = ExtResource("2_10ki7")
+script = ExtResource("3_ti1oi")
 
-[node name="Walls" type="TileMapLayer" parent="World"]
+[node name="Walls2" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_set = ExtResource("2_ss04b")
+tile_set = ExtResource("2_10ki7")
 
-[node name="Pet" type="CharacterBody2D" parent="World"]
+[node name="Pet2" type="CharacterBody2D" parent="."]
 z_index = 1
 z_as_relative = false
 position = Vector2(-60, -4)
 collision_layer = 2
-script = ExtResource("10_gnmo0")
-StatsLabelPath = NodePath("../../UI/UIRoot/StatsLabel")
+script = ExtResource("4_edkrd")
+StatsLabelPath = NodePath("../UI/UIRoot/StatsLabel")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Pet"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pet2"]
 position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_pbw6q")
+shape = SubResource("RectangleShape2D_5hno3")
 
-[node name="Sprite2D" type="Sprite2D" parent="World/Pet"]
+[node name="Sprite2D" type="Sprite2D" parent="Pet2"]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-13, -27)
 scale = Vector2(0.06625, 0.0725)
-texture = ExtResource("11_d76e8")
+texture = ExtResource("5_bsqcq")
 centered = false
 
-[node name="Interactor" type="Node2D" parent="World/Pet"]
-script = ExtResource("12_v8s62")
+[node name="Interactor" type="Node2D" parent="Pet2"]
+script = ExtResource("6_jf0ra")
 InteractZonePath = NodePath("InteractorSensor")
 
-[node name="InteractorSensor" type="Area2D" parent="World/Pet/Interactor"]
+[node name="InteractorSensor" type="Area2D" parent="Pet2/Interactor"]
 disable_mode = 2
 collision_layer = 2
 collision_mask = 4
 
-[node name="InteractorDetectionRadius" type="CollisionShape2D" parent="World/Pet/Interactor/InteractorSensor"]
+[node name="InteractorDetectionRadius" type="CollisionShape2D" parent="Pet2/Interactor/InteractorSensor"]
 position = Vector2(-2, -6)
-shape = SubResource("CircleShape2D_jw32o")
+shape = SubResource("CircleShape2D_88irt")
 
-[node name="SmallShop" parent="World" instance=ExtResource("7_kfoje")]
+[node name="SmallShop2" parent="." instance=ExtResource("7_fg52j")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(38, -222)
 
-[node name="Well" parent="World" instance=ExtResource("9_kibkm")]
+[node name="Well2" parent="." instance=ExtResource("8_6581v")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-94, -37)
 
-[node name="LargeShop" parent="World" instance=ExtResource("9_kfoje")]
+[node name="LargeShop2" parent="." instance=ExtResource("9_6hht6")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-261, -225)
 
-[node name="Barrel" parent="World" instance=ExtResource("10_kibkm")]
+[node name="Barrel2" parent="." instance=ExtResource("10_kjp6r")]
 position = Vector2(-355, -181)
 
-[node name="Props" type="TileMapLayer" parent="."]
-z_index = 1
-y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD5//r/AQABAAYAAAD5//n/AQABAAUAAAD5//j/AQABAAQAAAD6//r/AQACAAUAAAA=")
-tile_set = ExtResource("2_ss04b")
+[node name="UI2" type="CanvasLayer" parent="."]
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="UIRoot" type="Control" parent="UI"]
+[node name="UIRoot" type="Control" parent="UI2"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
-[node name="StatsLabel" type="Label" parent="UI/UIRoot"]
+[node name="StatsLabel" type="Label" parent="UI2/UIRoot"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 91.0
 offset_bottom = 39.0
 text = "Loading..."
+metadata/_edit_use_anchors_ = true
+
+[node name="Props" type="TileMapLayer" parent="."]
+z_index = 1
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD5//r/AQABAAYAAAD5//n/AQABAAUAAAD5//j/AQABAAQAAAD6//r/AQACAAUAAAA=")
+tile_set = ExtResource("2_10ki7")
