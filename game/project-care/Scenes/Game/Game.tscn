@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< HEAD:game/project-care/Scenes/World/Main.tscn
 [gd_scene load_steps=14 format=4 uid="uid://dx1r0pobpj17c"]
 
@@ -27,6 +28,21 @@
 [ext_resource type="PackedScene" uid="uid://dpr2mh4qromkb" path="res://Tiles/Interactable/Barrel.tscn" id="10_kjp6r"]
 >>>>>>> c4b0e21 (feat(title): Add title screen with start game button):game/project-care/Scenes/Game/Game.tscn
 
+=======
+[gd_scene load_steps=13 format=4 uid="uid://nc2ohx252h0y"]
+
+[ext_resource type="Script" uid="uid://c72fmtic4fxk6" path="res://Scripts/Camera/WorldCamera.cs" id="1_3586x"]
+[ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/Tilesets/TownCenter.tres" id="2_10ki7"]
+[ext_resource type="Script" uid="uid://ktgsegcmh3l" path="res://Scripts/MapLayers/GroundLayer.cs" id="3_ti1oi"]
+[ext_resource type="Script" uid="uid://o2wqbo18i87i" path="res://Scripts/Player/Pet.cs" id="4_edkrd"]
+[ext_resource type="Texture2D" uid="uid://bkp51v2xsk8mo" path="res://Assets/sprites/pet_sprite.png" id="5_bsqcq"]
+[ext_resource type="Script" uid="uid://cetkm3uoh45yp" path="res://Scripts/Player/Interactor.cs" id="6_jf0ra"]
+[ext_resource type="PackedScene" uid="uid://b2wi6ekurxepi" path="res://Tiles/Interactable/SmallShop.tscn" id="7_fg52j"]
+[ext_resource type="PackedScene" uid="uid://mhk2b3dmnp2i" path="res://Tiles/Interactable/Well.tscn" id="8_6581v"]
+[ext_resource type="PackedScene" uid="uid://c02j1n1gihwt7" path="res://Tiles/Interactable/LargeShop.tscn" id="9_6hht6"]
+[ext_resource type="PackedScene" uid="uid://dpr2mh4qromkb" path="res://Tiles/Interactable/Barrel.tscn" id="10_kjp6r"]
+
+>>>>>>> c4b0e21 (feat(title): Add title screen with start game button)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hno3"]
 size = Vector2(12, 8)
 
@@ -100,6 +116,7 @@ position = Vector2(-261, -225)
 [node name="Barrel2" parent="." instance=ExtResource("10_kjp6r")]
 position = Vector2(-355, -181)
 
+<<<<<<< HEAD
 <<<<<<< HEAD:game/project-care/Scenes/World/Main.tscn
 [node name="Fountain" parent="World" instance=ExtResource("11_4pger")]
 position = Vector2(-131, 13)
@@ -112,6 +129,9 @@ tile_set = ExtResource("2_ss04b")
 =======
 [node name="UI2" type="CanvasLayer" parent="."]
 >>>>>>> c4b0e21 (feat(title): Add title screen with start game button):game/project-care/Scenes/Game/Game.tscn
+=======
+[node name="UI2" type="CanvasLayer" parent="."]
+>>>>>>> c4b0e21 (feat(title): Add title screen with start game button)
 
 [node name="UIRoot" type="Control" parent="UI2"]
 layout_mode = 3
