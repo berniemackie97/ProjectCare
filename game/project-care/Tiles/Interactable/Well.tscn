@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://mhk2b3dmnp2i"]
+
+[ext_resource type="Texture2D" uid="uid://cchnr7egl73ot" path="res://Assets/Tiles/town_center_misc_decor_pack.png" id="1_xscum"]
+[ext_resource type="Script" uid="uid://c3fr7onsc7eih" path="res://Scripts/Interactables/WellInteractive.cs" id="2_e512y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4pr4"]
+radius = 9.0
+height = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1r3w"]
+radius = 19.0
+height = 106.0
+
+[node name="Well" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(1, 0)
+texture = ExtResource("1_xscum")
+region_enabled = true
+region_rect = Rect2(13.608, 52.2771, 105.839, 47.6981)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_c4pr4")
+
+[node name="Area2D" type="Area2D" parent="."]
+disable_mode = 2
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_e512y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_t1r3w")
