@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dx1r0pobpj17c"]
+[gd_scene load_steps=14 format=4 uid="uid://dx1r0pobpj17c"]
 
 [ext_resource type="Script" uid="uid://c72fmtic4fxk6" path="res://Scripts/Camera/WorldCamera.cs" id="1_x4w24"]
 [ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/Tilesets/TownCenter.tres" id="2_ss04b"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://mhk2b3dmnp2i" path="res://Tiles/Interactable/Well.tscn" id="9_kibkm"]
 [ext_resource type="Script" uid="uid://o2wqbo18i87i" path="res://Scripts/Player/Pet.cs" id="10_gnmo0"]
 [ext_resource type="PackedScene" uid="uid://dpr2mh4qromkb" path="res://Tiles/Interactable/Barrel.tscn" id="10_kibkm"]
+[ext_resource type="PackedScene" uid="uid://bj7ihlrwfati4" path="res://Tiles/Interactable/fountain.tscn" id="11_4pger"]
 [ext_resource type="Texture2D" uid="uid://bkp51v2xsk8mo" path="res://Assets/sprites/pet_sprite.png" id="11_d76e8"]
 [ext_resource type="Script" uid="uid://cetkm3uoh45yp" path="res://Scripts/Player/Interactor.cs" id="12_v8s62"]
 
@@ -76,7 +77,7 @@ position = Vector2(38, -222)
 [node name="Well" parent="World" instance=ExtResource("9_kibkm")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-94, -37)
+position = Vector2(180, 136)
 
 [node name="LargeShop" parent="World" instance=ExtResource("9_kfoje")]
 z_index = 1
@@ -85,6 +86,9 @@ position = Vector2(-261, -225)
 
 [node name="Barrel" parent="World" instance=ExtResource("10_kibkm")]
 position = Vector2(-355, -181)
+
+[node name="Fountain" parent="World" instance=ExtResource("11_4pger")]
+position = Vector2(-131, 13)
 
 [node name="Props" type="TileMapLayer" parent="."]
 z_index = 1

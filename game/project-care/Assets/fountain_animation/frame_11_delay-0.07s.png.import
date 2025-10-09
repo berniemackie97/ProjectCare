@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cchnr7egl73ot"
-path="res://.godot/imported/town_center_misc_decor_pack.png-b850f8fdae948b07d4cda915652d4ce4.ctex"
+uid="uid://5hjt2v72pvie"
+path="res://.godot/imported/frame_11_delay-0.07s.png-86b6ac487e3611e2251227539ed90b7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/town_center_misc_decor_pack.png"
-dest_files=["res://.godot/imported/town_center_misc_decor_pack.png-b850f8fdae948b07d4cda915652d4ce4.ctex"]
+source_file="res://Assets/fountain_animation/frame_11_delay-0.07s.png"
+dest_files=["res://.godot/imported/frame_11_delay-0.07s.png-86b6ac487e3611e2251227539ed90b7c.ctex"]
 
 [params]
 
