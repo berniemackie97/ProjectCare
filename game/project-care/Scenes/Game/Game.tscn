@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://nc2ohx252h0y"]
+[gd_scene load_steps=16 format=4 uid="uid://nc2ohx252h0y"]
 
 [ext_resource type="Script" uid="uid://c72fmtic4fxk6" path="res://Scripts/Camera/WorldCamera.cs" id="1_3586x"]
 [ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/Tilesets/TownCenter.tres" id="2_10ki7"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://c02j1n1gihwt7" path="res://Tiles/Interactable/LargeShop.tscn" id="9_6hht6"]
 [ext_resource type="PackedScene" uid="uid://dpr2mh4qromkb" path="res://Tiles/Interactable/Barrel.tscn" id="10_kjp6r"]
 [ext_resource type="PackedScene" uid="uid://4ar25s0jiyav" path="res://Scenes/Game/fountain.tscn" id="11_10ki7"]
+[ext_resource type="PackedScene" uid="uid://chiirigxl54yu" path="res://Scenes/Store/InventoryUI.tscn" id="11_ti1oi"]
+[ext_resource type="Script" uid="uid://kpuwd060lmhj" path="res://Scripts/UI/UIController.cs" id="12_edkrd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hno3"]
 size = Vector2(12, 8)
@@ -20,8 +22,12 @@ radius = 12.0
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
+scale = Vector2(2, 2)
 
 [node name="Camera2D2" type="Camera2D" parent="."]
+position = Vector2(-96, -113.5)
+scale = Vector2(-133.93755, 7.8720536)
+zoom = Vector2(1.5, 1.5)
 script = ExtResource("1_3586x")
 
 [node name="Ground2" type="TileMapLayer" parent="."]
@@ -86,22 +92,26 @@ position = Vector2(-261, -225)
 position = Vector2(-366, -190)
 
 [node name="UI2" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
 [node name="UIRoot" type="Control" parent="UI2"]
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
-[node name="StatsLabel" type="Label" parent="UI2/UIRoot"]
+[node name="Inventory" parent="UI2/UIRoot" instance=ExtResource("11_ti1oi")]
+z_index = 2
 layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 91.0
-offset_bottom = 39.0
-text = "Loading..."
-metadata/_edit_use_anchors_ = true
+offset_left = 7.0
+offset_top = -202.0
+offset_right = 97.0
+offset_bottom = -112.0
+
+[node name="UIController" type="Node" parent="UI2/UIRoot"]
+script = ExtResource("12_edkrd")
 
 [node name="Props" type="TileMapLayer" parent="."]
 z_index = 1
