@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://nc2ohx252h0y"]
+[gd_scene load_steps=14 format=4 uid="uid://nc2ohx252h0y"]
 
 [ext_resource type="Script" uid="uid://c72fmtic4fxk6" path="res://Scripts/Camera/WorldCamera.cs" id="1_3586x"]
 [ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/Tilesets/TownCenter.tres" id="2_10ki7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://mhk2b3dmnp2i" path="res://Tiles/Interactable/Well.tscn" id="8_6581v"]
 [ext_resource type="PackedScene" uid="uid://c02j1n1gihwt7" path="res://Tiles/Interactable/LargeShop.tscn" id="9_6hht6"]
 [ext_resource type="PackedScene" uid="uid://dpr2mh4qromkb" path="res://Tiles/Interactable/Barrel.tscn" id="10_kjp6r"]
+[ext_resource type="PackedScene" uid="uid://4ar25s0jiyav" path="res://Scenes/Game/fountain.tscn" id="11_10ki7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hno3"]
 size = Vector2(12, 8)
@@ -74,7 +75,7 @@ position = Vector2(38, -222)
 [node name="Well2" parent="." instance=ExtResource("8_6581v")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-94, -37)
+position = Vector2(-363, 129)
 
 [node name="LargeShop2" parent="." instance=ExtResource("9_6hht6")]
 z_index = 1
@@ -82,7 +83,7 @@ y_sort_enabled = true
 position = Vector2(-261, -225)
 
 [node name="Barrel2" parent="." instance=ExtResource("10_kjp6r")]
-position = Vector2(-355, -181)
+position = Vector2(-366, -190)
 
 [node name="UI2" type="CanvasLayer" parent="."]
 
@@ -107,3 +108,6 @@ z_index = 1
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD5//r/AQABAAYAAAD5//n/AQABAAUAAAD5//j/AQABAAQAAAD6//r/AQACAAUAAAA=")
 tile_set = ExtResource("2_10ki7")
+
+[node name="fountain" parent="." instance=ExtResource("11_10ki7")]
+position = Vector2(-122, 17)
