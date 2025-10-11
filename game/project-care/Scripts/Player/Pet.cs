@@ -7,7 +7,7 @@ public partial class Pet : CharacterBody2D
 	[Export] public int MaxStat { get; set; } = 100;
 	[Export] public float DecayPerMinute { get; set; } = 2f;
 	[Export] public NodePath StatsLabelPath { get; set; }
-	[Export] public float MoveSpeed { get; set; } = 200f;
+	[Export] public float MoveSpeed { get; set; } = 400f;
 
 	private Label _label;
 	public float Happiness { get; private set; }
