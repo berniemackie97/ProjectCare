@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemDef" load_steps=3 format=3 uid="uid://bg7s77spbtx5k"]
+
+[ext_resource type="Texture2D" uid="uid://b523y1qanidfb" path="res://Assets/Items/appleItem.png" id="1_5xwrb"]
+[ext_resource type="Script" uid="uid://bg8xqg3eweygx" path="res://Scripts/Resources/Items/ItemDef.cs" id="2_ayapw"]
+
+[resource]
+script = ExtResource("2_ayapw")
+DisplayName = "Apple"
+Icon = ExtResource("1_5xwrb")
+Quantity = 10
