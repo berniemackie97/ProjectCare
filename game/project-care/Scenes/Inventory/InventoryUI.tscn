@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://chiirigxl54yu"]
+[gd_scene load_steps=6 format=3 uid="uid://chiirigxl54yu"]
 
 [ext_resource type="Script" uid="uid://bhjsrtae5glhu" path="res://Scripts/GameState/Inventory/Inventory.cs" id="1_4ldj3"]
 [ext_resource type="Texture2D" uid="uid://1pulks3772we" path="res://Assets/UI/InventoryRect.png" id="1_i8wl3"]
+[ext_resource type="PackedScene" uid="uid://bumsw2wdwc8f8" path="res://Scenes/Inventory/inventory_button.tscn" id="2_wv8bo"]
 [ext_resource type="FontFile" uid="uid://dp4jt3u1b8lln" path="res://Assets/Fonts/PixExtrusion.ttf" id="3_dyql7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_808hc"]
@@ -15,6 +16,7 @@ anchors_preset = 0
 offset_right = 180.0
 offset_bottom = 360.0
 script = ExtResource("1_4ldj3")
+inventoryButtonScene = ExtResource("2_wv8bo")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(180, 180)
@@ -43,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 3
 
-[node name="Label" type="Label" parent="NinePatchRect"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 18.0
