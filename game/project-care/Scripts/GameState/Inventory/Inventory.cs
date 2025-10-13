@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using Godot;
 using ProjectCare.Scripts.Enums;
+using ProjectCare.Scripts.Interfaces;
 using ProjectCare.Scripts.Resources.Inventory;
 
 namespace ProjectCare.Scripts.GameState;
 
-public partial class Inventory : Control
+public partial class Inventory : Control, IInventorySystem
 {
 
     private GridContainer _gridContainer;
@@ -20,10 +21,12 @@ public partial class Inventory : Control
         populateButtons();
         setupInitialItems();
     }
+    
+    
 
     private void setupInitialItems()
     {
-        Add(GameDB.Instance.GetById(0), 10);
+        AddItem(GameDB.Instance.GetById(0), 10);
     }
 
     private void populateButtons()
@@ -44,7 +47,7 @@ public partial class Inventory : Control
         }
     }
 
-    public int Add(ItemDef itemDef, int amount = 1) {
+    public int AddItem(ItemDef itemDef, int amount) {
         
         if (itemDef == null || amount <= 0) return amount;
 
