@@ -92,23 +92,23 @@ position = Vector2(-261, -225)
 position = Vector2(-366, -190)
 
 [node name="UI2" type="CanvasLayer" parent="."]
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 follow_viewport_enabled = true
 
 [node name="UIRoot" type="Control" parent="UI2"]
 z_index = 2
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" parent="UI2/UIRoot" instance=ExtResource("11_ti1oi")]
 z_index = 2
 layout_mode = 0
-offset_left = 7.0
-offset_top = -202.0
-offset_right = 97.0
-offset_bottom = -112.0
+offset_left = 101.33333
+offset_top = -327.33334
+offset_right = 278.3333
+offset_bottom = 27.333344
 
 [node name="UIController" type="Node" parent="UI2/UIRoot"]
 script = ExtResource("12_edkrd")

@@ -1,33 +1,36 @@
-namespace ProjectCare.Scripts.UI;
-
 using Godot;
+namespace ProjectCare.UI;
 
 public partial class UIController : Node
 {
     private Control _inventory;
-    private bool _inventoryOpen = false;
+    private bool _open;
 
     public override void _Ready()
     {
-        _inventory = GetNode<Control>("../Inventory");
-        _inventory.Visible = false;
+
+        setupInventory();
+        
     }
 
-    public override void _UnhandledInput(InputEvent @event)
+    public override void _Input(InputEvent e)
     {
         if (Input.IsActionJustPressed("ui_inventory"))
-        {
             ToggleInventory();
-        }
     }
 
     private void ToggleInventory()
     {
-        _inventoryOpen = !_inventoryOpen;
-        _inventory.Visible = _inventoryOpen;
-
-        GetTree().Paused = _inventoryOpen;
-        if (_inventoryOpen)
-            _inventory.GrabFocus();
+        if (_inventory == null) return;
+        _open = !_open;
+        _inventory.Visible = _open;
+        GD.Print(_open ? "Inventory opened" : "Inventory closed");
     }
+
+    private void setupInventory()
+    {
+        _inventory = GetNodeOrNull<Control>("../Inventory");
+        _inventory.Visible = false;
+    }
+    
 }
