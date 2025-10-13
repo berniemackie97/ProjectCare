@@ -33,6 +33,8 @@ public partial class UIController : Node
     {
         if (Input.IsActionJustPressed("ui_inventory"))
             ToggleInventory();
+        if (Input.IsActionJustPressed("close_ui"))
+            setUIState(UIState.Default);
     }
 
     private void ToggleInventory()
