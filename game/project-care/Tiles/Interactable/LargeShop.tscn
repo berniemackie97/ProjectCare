@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c02j1n1gihwt7"]
+[gd_scene load_steps=6 format=3 uid="uid://c02j1n1gihwt7"]
 
 [ext_resource type="Script" uid="uid://ddej25sv4nxq3" path="res://Scripts/Interactables/StoreInteractive.cs" id="1_qjw5o"]
 [ext_resource type="Texture2D" uid="uid://bwvsow1nuclre" path="res://Assets/Tiles/town_center_buildings_from_refs_128.png" id="2_pt5g2"]
+[ext_resource type="Resource" uid="uid://bg7s77spbtx5k" path="res://ItemDefs/AppleItem.tres" id="3_c60by"]
+[ext_resource type="Script" uid="uid://bjrpti0ro5lnx" path="res://Scripts/Resources/Store/StoreEntry.cs" id="4_h4ail"]
+
+[sub_resource type="Resource" id="Resource_rsm6m"]
+script = ExtResource("4_h4ail")
+Item = ExtResource("3_c60by")
+Price = 10
+Stock = 100
+metadata/_custom_type_script = "uid://bjrpti0ro5lnx"
 
 [node name="LargeShop" type="Node2D"]
 
@@ -24,6 +33,7 @@ disable_mode = 2
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_qjw5o")
+Catalog = Array[Object]([SubResource("Resource_rsm6m")])
 
 [node name="StoreInteractiveArea" type="CollisionPolygon2D" parent="StoreArea2D"]
 position = Vector2(3, 0)

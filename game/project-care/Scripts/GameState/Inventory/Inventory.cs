@@ -21,8 +21,6 @@ public partial class Inventory : Control, IInventorySystem
         populateButtons();
         setupInitialItems();
     }
-    
-    
 
     private void setupInitialItems()
     {
@@ -35,6 +33,7 @@ public partial class Inventory : Control, IInventorySystem
     {
         for (int i = 0; i < Capacity; i++)
         {
+            GD.Print("Added Button");
             InventoryButton currentInventoryButton = inventoryButtonScene.Instantiate<InventoryButton>();
             _gridContainer.AddChild(currentInventoryButton);
             UpdateButton(i);
