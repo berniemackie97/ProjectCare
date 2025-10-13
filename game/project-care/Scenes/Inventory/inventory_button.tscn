@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bumsw2wdwc8f8"]
+
+[ext_resource type="Script" uid="uid://dne8qphp3ag6u" path="res://Scripts/GameState/Inventory/InventoryButton.cs" id="1_f41cq"]
+[ext_resource type="Texture2D" uid="uid://br33u5u6s4va8" path="res://Assets/UI/inventorySlot.png" id="2_g05mv"]
+[ext_resource type="Texture2D" uid="uid://b523y1qanidfb" path="res://Assets/Items/appleItem.png" id="3_ap14i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1phe1"]
+font_size = 10
+
+[node name="InventoryButton" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 2
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_f41cq")
+
+[node name="SlotIcon" type="Sprite2D" parent="."]
+z_index = 2
+scale = Vector2(2, 2)
+texture = ExtResource("2_g05mv")
+centered = false
+vframes = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 36.0
+offset_bottom = 37.0
+texture = ExtResource("3_ap14i")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 18.0
+offset_top = 25.0
+offset_right = 36.0
+offset_bottom = 39.0
+text = "100"
+label_settings = SubResource("LabelSettings_1phe1")

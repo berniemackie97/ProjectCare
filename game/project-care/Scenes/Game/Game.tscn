@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c02j1n1gihwt7" path="res://Tiles/Interactable/LargeShop.tscn" id="9_6hht6"]
 [ext_resource type="PackedScene" uid="uid://dpr2mh4qromkb" path="res://Tiles/Interactable/Barrel.tscn" id="10_kjp6r"]
 [ext_resource type="PackedScene" uid="uid://4ar25s0jiyav" path="res://Scenes/Game/fountain.tscn" id="11_10ki7"]
-[ext_resource type="PackedScene" uid="uid://chiirigxl54yu" path="res://Scenes/Store/InventoryUI.tscn" id="11_ti1oi"]
+[ext_resource type="PackedScene" uid="uid://chiirigxl54yu" path="res://Scenes/Inventory/InventoryUI.tscn" id="11_ti1oi"]
 [ext_resource type="Script" uid="uid://kpuwd060lmhj" path="res://Scripts/UI/UIController.cs" id="12_edkrd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hno3"]
@@ -86,7 +86,7 @@ position = Vector2(-363, 129)
 [node name="LargeShop2" parent="." instance=ExtResource("9_6hht6")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-261, -225)
+position = Vector2(-264.5, -226.5)
 
 [node name="Barrel2" parent="." instance=ExtResource("10_kjp6r")]
 position = Vector2(-366, -190)
