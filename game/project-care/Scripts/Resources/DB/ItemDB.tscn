@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://da817mp3q17bq"]
+[gd_scene load_steps=7 format=3 uid="uid://da817mp3q17bq"]
 
 [ext_resource type="Script" uid="uid://brs7kfdh0rar" path="res://Scripts/GameState/Inventory/GameDB.cs" id="1_mh40u"]
 [ext_resource type="Texture2D" uid="uid://b523y1qanidfb" path="res://Assets/Items/appleItem.png" id="2_u8dwv"]
 [ext_resource type="Script" uid="uid://bg8xqg3eweygx" path="res://Scripts/Resources/Items/ItemDef.cs" id="3_jona7"]
+[ext_resource type="Texture2D" uid="uid://clbnmfchkmwup" path="res://Assets/Items/peachItem.webp" id="4_u8dwv"]
 
 [sub_resource type="Resource" id="Resource_2mtf7"]
 script = ExtResource("3_jona7")
@@ -10,6 +11,13 @@ DisplayName = "Apple"
 Icon = ExtResource("2_u8dwv")
 metadata/_custom_type_script = "uid://bg8xqg3eweygx"
 
+[sub_resource type="Resource" id="Resource_jona7"]
+script = ExtResource("3_jona7")
+Id = 1
+DisplayName = "Peach"
+Icon = ExtResource("4_u8dwv")
+metadata/_custom_type_script = "uid://bg8xqg3eweygx"
+
 [node name="ItemDb" type="Node"]
 script = ExtResource("1_mh40u")
-Items = Array[Object]([SubResource("Resource_2mtf7")])
+Items = Array[Object]([SubResource("Resource_2mtf7"), SubResource("Resource_jona7")])

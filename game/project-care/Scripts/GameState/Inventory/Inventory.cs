@@ -27,6 +27,8 @@ public partial class Inventory : Control, IInventorySystem
     private void setupInitialItems()
     {
         AddItem(GameDB.Instance.GetById(0), 10);
+        AddItem(GameDB.Instance.GetById(1), 15);
+        RemoveItem(1, 5);
     }
 
     private void populateButtons()
@@ -62,7 +64,29 @@ public partial class Inventory : Control, IInventorySystem
         }
 
         return amount;
+        
     }
+    
+    public int RemoveItem(int itemId, int amount)
+    {
+        if (amount <= 0) return amount;
+
+        for (int i = 0; i < _slots.Count && amount > 0; i++)
+        {
+            var s = _slots[i];
+            if (s.Id != itemId || s.Count == 0) continue;
+
+            int take = Mathf.Min(s.Count, amount);
+            s.Count -= take;
+            amount  -= take;
+
+            if (s.Count == 0) { s.Id = -1; }
+            UpdateButton(i);
+        }
+
+        return amount;
+    }
+    public int RemoveItem(ItemDef def, int amount) => def == null ? amount : RemoveItem(def.Id, amount);
 
     public void UpdateButton(int index)
     {

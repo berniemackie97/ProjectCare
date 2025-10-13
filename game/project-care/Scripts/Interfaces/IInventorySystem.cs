@@ -6,6 +6,8 @@ public interface IInventorySystem
 {
 
     int AddItem(ItemDef itemDef, int amountToAdd);
+    int RemoveItem(ItemDef itemDef, int amountToRemove);
 
+    int RemoveItem(int itemId, int amountToRemove);
 
 }
