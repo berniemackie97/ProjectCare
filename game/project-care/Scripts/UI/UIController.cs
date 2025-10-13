@@ -1,26 +1,31 @@
 using Godot;
 using ProjectCare.Scripts;
+using ProjectCare.Scripts.Enums;
 using ProjectCare.Scripts.GameState;
+using ProjectCare.Scripts.Resources;
 
 namespace ProjectCare.UI;
 
 public partial class UIController : Node
 {
-    private Control _inventory;
-    private Control _storeUI;
+    
+    [Export] private Control InventoryUI;
+    [Export] private Control StoreUI;
+    
     private bool _inventoryOpen;
     private bool _storeOpen;
+    
+    
 
     public override void _Ready()
     {
-
-        setupInventory();
-        SetupStoreUI();
-
+        
         foreach (StoreInteractive store in GetTree().GetNodesInGroup("Stores"))
         {
             store.StoreOpened += OnStoreOpened;
         }
+        HideAll();
+        setUIState(UIState.Default);
         
     }
 
@@ -32,49 +37,58 @@ public partial class UIController : Node
 
     private void ToggleInventory()
     {
-        if (_inventory == null || _storeOpen) return;
-        _inventoryOpen = !_inventoryOpen;
-        _inventory.Visible = _inventoryOpen;
-        GD.Print(_inventoryOpen ? "Inventory opened" : "Inventory closed");
-    }
-
-    private void setupInventory()
-    {
-        _inventory = GetNodeOrNull<Control>("../Inventory");
-        _inventory.Visible = false;
-    }
-
-    private void SetupStoreUI()
-    {
-        _storeUI = GetNodeOrNull<Control>("../StoreUI");
-        if (_storeUI != null)
-            _storeUI.Visible = false;
+        if (!_inventoryOpen)
+        {
+            setUIState(UIState.Inventory);
+        } else
+        {
+            setUIState(UIState.Default);
+        }
     }
     
-    private void OnStoreOpened(StoreInventory store, Pet pet)
+    private void OnStoreOpened(Godot.Collections.Array<StoreEntry> catalog, Pet pet)
     {
-        GD.Print("Store opened");
-        if (_inventory == null) GD.Print("FUuuck");
-        OpenStore(store);
-        GD.Print($"Store opened for {pet.Name}");
+        StoreInventory ui = StoreUI as StoreInventory;
+        ui.SetCatalog(catalog);
+        setUIState(UIState.Store);
     }
     
-    public void OpenStore(Control storeNode)
+    private void HideAll()
     {
-        _storeUI = storeNode;
-        _inventoryOpen = true;
-        _inventory.Visible = true;
-        _storeUI.Visible = true;
-        _storeOpen = true;
-        GD.Print("Store opened");
+        if (InventoryUI != null)
+        {
+            InventoryUI.Visible = false;
+            _inventoryOpen = false;
+        }
+
+        if (StoreUI != null)
+        {
+            StoreUI.Visible = false;
+            _storeOpen = false;
+        }
     }
 
-    public void CloseStore()
+    public void setUIState(UIState newState)
     {
-        if (_storeUI == null) return;
-        _storeUI.Visible = false;
-        _storeOpen = false;
-        GD.Print("Store closed");
+        HideAll();
+        
+        switch (newState)
+        {
+            case UIState.Default :
+                return;
+            case UIState.Inventory :
+                InventoryUI.Visible = true;
+                _inventoryOpen = true;
+                break;
+            case UIState.Store :
+                InventoryUI.Visible = true;
+                _inventoryOpen = true;
+                StoreUI.Visible = true;
+                _storeOpen = true;
+                break;
+            default:
+                return;
+        }
     }
     
     

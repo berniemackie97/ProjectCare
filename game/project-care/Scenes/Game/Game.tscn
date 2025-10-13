@@ -112,10 +112,10 @@ offset_top = -327.33334
 offset_right = 278.3333
 offset_bottom = 27.333344
 
-[node name="UIController" type="Node" parent="UI2/UIRoot" node_paths=PackedStringArray("_inventory", "_storeUI")]
+[node name="UIController" type="Node" parent="UI2/UIRoot" node_paths=PackedStringArray("InventoryUI", "StoreUI")]
 script = ExtResource("12_edkrd")
-_inventory = NodePath("../Inventory")
-_storeUI = NodePath("../StoreUI")
+InventoryUI = NodePath("../Inventory")
+StoreUI = NodePath("../StoreUI")
 
 [node name="StoreUI" parent="UI2/UIRoot" instance=ExtResource("14_fg52j")]
 layout_mode = 0
