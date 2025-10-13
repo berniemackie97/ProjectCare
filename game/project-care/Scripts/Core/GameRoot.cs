@@ -10,7 +10,7 @@ public partial class GameRoot : Node
     private PackedScene _titleScene = GD.Load<PackedScene>("res://Scenes/Title/TitleScreen.tscn");
     private PackedScene _gameScene  = GD.Load<PackedScene>("res://Scenes/Game/Game.tscn");
 
-    public override void _Ready()
+    public override void _Ready() 
     {
         _holder = GetNode("SceneHolder");
         LoadTitle();

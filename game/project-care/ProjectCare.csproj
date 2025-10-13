@@ -9,5 +9,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scenes\" />
+    <Folder Include="Scripts\Resources\Inventory\" />
   </ItemGroup>
 </Project>
