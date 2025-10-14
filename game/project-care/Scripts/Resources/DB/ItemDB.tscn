@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://da817mp3q17bq"]
 
-[ext_resource type="Script" uid="uid://brs7kfdh0rar" path="res://Scripts/GameState/Inventory/GameDB.cs" id="1_mh40u"]
+[ext_resource type="Script" uid="uid://dw1rtij5xngbq" path="res://Scripts/Core/DB/GameDB.cs" id="1_mh40u"]
 [ext_resource type="Texture2D" uid="uid://b523y1qanidfb" path="res://Assets/Items/appleItem.png" id="2_u8dwv"]
 [ext_resource type="Script" uid="uid://bg8xqg3eweygx" path="res://Scripts/Resources/Items/ItemDef.cs" id="3_jona7"]
 [ext_resource type="Texture2D" uid="uid://clbnmfchkmwup" path="res://Assets/Items/peachItem.webp" id="4_u8dwv"]

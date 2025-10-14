@@ -5,5 +5,5 @@ namespace ProjectCare.Scripts.Resources;
 
 [GlobalClass]
 public partial class StoreCatalog : Resource {
-    [Export] public Godot.Collections.Array<StoreItem> Items;
+    [Export] public Godot.Collections.Array<StoreEntry> Items;
 }

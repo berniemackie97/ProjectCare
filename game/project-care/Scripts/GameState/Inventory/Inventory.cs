@@ -3,25 +3,21 @@ using Godot;
 using ProjectCare.Scripts.Enums;
 using ProjectCare.Scripts.Interfaces;
 using ProjectCare.Scripts.Resources.Inventory;
+using ProjectCare.UI;
 
 namespace ProjectCare.Scripts.GameState;
 
-public partial class Inventory : Control, IInventorySystem
+public partial class Inventory : AbstractGrid, IInventorySystem
 {
-
-    private GridContainer _gridContainer;
-    [Export] private PackedScene inventoryButtonScene;
+    
     [Export] public int Capacity { get; set; } = 18;
 
     private List<ItemSlot> _slots = new();
-
-    public int? selectedSlot;
     
     public override void _Ready()
     {
-        _gridContainer = GetNode<GridContainer>("NinePatchRect/Grid");
-        populateSlots();
-        populateButtons();
+        PopulateSlots();
+        PopulateButtons();
         setupInitialItems();
     }
     private void setupInitialItems()
@@ -31,25 +27,25 @@ public partial class Inventory : Control, IInventorySystem
         RemoveItem(1, 5);
     }
 
-    private void populateButtons()
+    protected override void PopulateButtons()
     {
         for (int i = 0; i < Capacity; i++)
         {
             GD.Print("Added Button");
-            InventoryButton currentInventoryButton = inventoryButtonScene.Instantiate<InventoryButton>();
+            InventoryButton currentInventoryButton = ButtonScene.Instantiate<InventoryButton>();
             currentInventoryButton.Init(this, i);
-            _gridContainer.AddChild(currentInventoryButton);
+            GridContainer.AddChild(currentInventoryButton);
             UpdateButton(i);
         }
     }
     
-    public void OnSlotPressed(int index)
+    public override void OnSlotPressed(int index)
     {
         GD.Print($"Slot {index} pressed");
-        selectedSlot = index;
+        selectedSlotIndex = index;
     }
 
-    private void populateSlots()
+    private void PopulateSlots()
     {
         for (int i = 0; i < Capacity; i++)
         {
@@ -112,12 +108,12 @@ public partial class Inventory : Control, IInventorySystem
         button.SetCount(itemSlot.Count);
     }
 
-    private InventoryButton getButtonInGrid(int index) => _gridContainer.GetChild<InventoryButton>(index);
+    private InventoryButton getButtonInGrid(int index) => GridContainer.GetChild<InventoryButton>(index);
 
     public ItemSlot getSlotAtIndex()
     {
-        if (selectedSlot == null) return null;
-        return _slots[selectedSlot.Value];
+        if (selectedSlotIndex == null) return null;
+        return _slots[selectedSlotIndex.Value];
     }
     
     public void _on_add_button_button_down()

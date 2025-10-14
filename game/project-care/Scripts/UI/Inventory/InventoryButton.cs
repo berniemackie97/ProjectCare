@@ -1,7 +1,8 @@
 using Godot;
  using ProjectCare.Scripts.Enums;
  using ProjectCare.Scripts.Resources.Inventory;
- 
+ using ProjectCare.UI;
+
  namespace ProjectCare.Scripts.GameState;
  
  public partial class InventoryButton : Button
@@ -10,10 +11,10 @@ using Godot;
      [Export] private TextureRect icon;
      [Export] private Label quantityLabel; 
      [Export] private Sprite2D SlotIcon;
-     private Inventory _inventory;
+     private AbstractGrid _inventory;
      private int _index;
 
-     public void Init(Inventory inventory, int index)
+     public void Init(AbstractGrid inventory, int index)
      {
          _inventory = inventory;
          _index = index;
@@ -27,7 +28,12 @@ using Godot;
 
      public override void _Process(double delta)
      {
-         bool isSelected = _index == _inventory.selectedSlot;
+         if (_inventory == null) return;
+         if (_inventory.selectedSlotIndex == null)
+         {
+             setSelected(false); return;
+         }
+         bool isSelected = _index == _inventory.selectedSlotIndex.Value;
          this.setSelected(isSelected);
      }
  

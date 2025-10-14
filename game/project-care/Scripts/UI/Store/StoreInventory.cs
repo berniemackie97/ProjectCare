@@ -3,31 +3,27 @@ using Godot;
 using ProjectCare.Scripts.Interfaces;
 using ProjectCare.Scripts.Resources;
 using ProjectCare.Scripts.Resources.Inventory;
+using ProjectCare.UI;
 
 namespace ProjectCare.Scripts.GameState;
 
-public partial class StoreInventory : Control
+public partial class StoreInventory : AbstractGrid
 {
-
-    [Export] private PackedScene inventoryButtonScene;
-    private GridContainer _grid;
 
     private readonly List<StoreEntry> _catalog = new();
 
-    public override void _Ready()
+    protected override void PopulateButtons()
     {
-        _grid = GetNode<GridContainer>("NinePatchRect/Grid");
-        PopulateButtons();
-    }
-
-    private void PopulateButtons()
-    {
-        foreach (StoreEntry entry in _catalog)
+        for (int i = 0; i < _catalog.Count; i++)
         {
+
+            StoreEntry entry = _catalog[i];
+            
             if (entry == null || entry.Item == null) continue;
 
-            InventoryButton btn = inventoryButtonScene.Instantiate<InventoryButton>();
-            _grid.AddChild(btn);
+            InventoryButton btn = ButtonScene.Instantiate<InventoryButton>();
+            btn.Init(this, i);
+            GridContainer.AddChild(btn);
 
             btn.SetIcon(entry.Item.Icon);
             btn.SetBadge("$" + entry.Price.ToString());
@@ -43,19 +39,18 @@ public partial class StoreInventory : Control
 
         Refresh();
     }
+
+    public override void OnSlotPressed(int index)
+    {
+        selectedSlotIndex = index;
+        
+    }
     
     
     private void Refresh()
     {
-        foreach (Node n in _grid.GetChildren()) n.QueueFree();
-
-        foreach (StoreEntry entry in _catalog)
-        {
-            InventoryButton btn = inventoryButtonScene.Instantiate<InventoryButton>();
-            _grid.AddChild(btn);
-            btn.SetIcon(entry.Item.Icon);
-            btn.SetBadge("$" + entry.Price.ToString());
-        }
+        foreach (Node n in GridContainer.GetChildren()) n.QueueFree();
+        PopulateButtons();
     }
     
     

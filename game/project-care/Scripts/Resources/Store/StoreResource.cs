@@ -6,6 +6,6 @@ using Godot;
 public partial class StoreResource : Resource
 {
     [Export]
-    public Godot.Collections.Array<StoreItem> Items { get; set; } = new();
+    public Godot.Collections.Array<StoreEntry> Items { get; set; } = new();
     
 }
