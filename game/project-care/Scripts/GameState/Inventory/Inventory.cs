@@ -14,6 +14,9 @@ public partial class Inventory : Control, IInventorySystem
     [Export] public int Capacity { get; set; } = 18;
 
     private List<ItemSlot> _slots = new();
+
+    public int? selectedSlot;
+    
     public override void _Ready()
     {
         _gridContainer = GetNode<GridContainer>("NinePatchRect/Grid");
@@ -21,7 +24,6 @@ public partial class Inventory : Control, IInventorySystem
         populateButtons();
         setupInitialItems();
     }
-
     private void setupInitialItems()
     {
         AddItem(GameDB.Instance.GetById(0), 10);
@@ -35,9 +37,16 @@ public partial class Inventory : Control, IInventorySystem
         {
             GD.Print("Added Button");
             InventoryButton currentInventoryButton = inventoryButtonScene.Instantiate<InventoryButton>();
+            currentInventoryButton.Init(this, i);
             _gridContainer.AddChild(currentInventoryButton);
             UpdateButton(i);
         }
+    }
+    
+    public void OnSlotPressed(int index)
+    {
+        GD.Print($"Slot {index} pressed");
+        selectedSlot = index;
     }
 
     private void populateSlots()
@@ -105,6 +114,12 @@ public partial class Inventory : Control, IInventorySystem
 
     private InventoryButton getButtonInGrid(int index) => _gridContainer.GetChild<InventoryButton>(index);
 
+    public ItemSlot getSlotAtIndex()
+    {
+        if (selectedSlot == null) return null;
+        return _slots[selectedSlot.Value];
+    }
+    
     public void _on_add_button_button_down()
     {
         
