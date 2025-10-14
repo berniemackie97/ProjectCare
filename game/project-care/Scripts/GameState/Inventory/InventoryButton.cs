@@ -1,5 +1,6 @@
 using Godot;
 using ProjectCare.Scripts.Enums;
+using ProjectCare.Scripts.Resources.Inventory;
 
 namespace ProjectCare.Scripts.GameState;
 
@@ -8,26 +9,21 @@ public partial class InventoryButton : Button
 
     private TextureRect icon;
     private Label quantityLabel;
-    private int index;
-    private Item inventoryItem;
 
     public override void _Ready()
     {
         icon = GetNode<TextureRect>("TextureRect");
         quantityLabel = GetNode<Label>("Label");
-
     }
 
-    public override void _Process(double delta)
+    public void SetIcon(Texture2D icon) => this.icon.Texture = icon;
+    public void SetCount(int newCount) => quantityLabel.Text = newCount > 1 ? newCount.ToString() : "";
+
+    public void clear()
     {
-        
+        this.SetIcon(null);
+        this.SetCount(0);
     }
 
-    public void UpdateItem(Item item, int index)
-    {
-        this.index = index;
-        inventoryItem = item;
-    }
-    
-    
+
 }
