@@ -1,13 +1,10 @@
-[gd_resource type="TileSet" load_steps=16 format=3 uid="uid://cy58y12mmwgua"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://cy58y12mmwgua"]
 
 [ext_resource type="Texture2D" uid="uid://cavfqvl2n5hie" path="res://Assets/Tiles/town_center_props_from_refs_64.png" id="1_oi03g"]
 [ext_resource type="Texture2D" uid="uid://bwvsow1nuclre" path="res://Assets/Tiles/town_center_buildings_from_refs_128.png" id="2_nigw6"]
 [ext_resource type="Texture2D" uid="uid://b1mxoj5mc1lgx" path="res://Assets/Tiles/debug_iso_64x32.png" id="3_hxnku"]
 [ext_resource type="Texture2D" uid="uid://cchnr7egl73ot" path="res://Assets/Tiles/town_center_misc_decor_pack.png" id="3_nigw6"]
-[ext_resource type="PackedScene" uid="uid://djpt4jumdi77c" path="res://Tiles/WallRight.tscn" id="4_88lg0"]
-[ext_resource type="PackedScene" uid="uid://bi3p0n7pi7xkn" path="res://Tiles/WallLeft.tscn" id="5_7mgb7"]
-[ext_resource type="PackedScene" uid="uid://fvyey7n1o6jb" path="res://Tiles/Props/StoreBooth.tscn" id="6_0j4lh"]
-[ext_resource type="PackedScene" uid="uid://gkiiyg686khc" path="res://Tiles/Props/Well.tscn" id="7_21gm8"]
+[ext_resource type="Texture2D" uid="uid://c6d3u6lt627qh" path="res://Assets/Tiles/tile 2 edited.png" id="6_x3nmd"]
 [ext_resource type="Texture2D" uid="uid://q3v2oepyqicj" path="res://Assets/Tiles/town_center_floors_64x32.png" id="8_ycw32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x3nmd"]
@@ -25,7 +22,6 @@ texture_region_size = Vector2i(64, 32)
 7:3/0 = 0
 7:2/0 = 0
 7:1/0 = 0
-7:0/0 = 0
 6:0/0 = 0
 5:0/0 = 0
 4:0/0 = 0
@@ -39,6 +35,7 @@ texture_region_size = Vector2i(64, 32)
 2:3/0 = 0
 3:3/0 = 0
 4:3/0 = 0
+3:2/next_alternative_id = 2
 3:2/0 = 0
 2:2/0 = 0
 6:1/0 = 0
@@ -110,12 +107,6 @@ texture_region_size = Vector2i(64, 32)
 1:0/0 = 0
 2:0/0 = 0
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m40em"]
-scenes/1/scene = ExtResource("4_88lg0")
-scenes/2/scene = ExtResource("5_7mgb7")
-scenes/3/scene = ExtResource("6_0j4lh")
-scenes/4/scene = ExtResource("7_21gm8")
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_88lg0"]
 texture = ExtResource("2_nigw6")
 texture_region_size = Vector2i(128, 128)
@@ -124,6 +115,11 @@ texture_region_size = Vector2i(128, 128)
 0:2/0 = 0
 4:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2gti"]
+texture = ExtResource("6_x3nmd")
+texture_region_size = Vector2i(64, 32)
+0:0/0 = 0
+
 [resource]
 tile_shape = 1
 tile_offset_axis = 1
@@ -131,8 +127,8 @@ tile_size = Vector2i(64, 32)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/3 = SubResource("TileSetAtlasSource_fg1p1")
-sources/4 = SubResource("TileSetScenesCollectionSource_m40em")
 sources/0 = SubResource("TileSetAtlasSource_x3nmd")
 sources/1 = SubResource("TileSetAtlasSource_nigw6")
 sources/2 = SubResource("TileSetAtlasSource_hxnku")
 sources/5 = SubResource("TileSetAtlasSource_88lg0")
+sources/9 = SubResource("TileSetAtlasSource_f2gti")
