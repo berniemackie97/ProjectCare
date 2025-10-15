@@ -1,12 +1,12 @@
-namespace ProjectCare.Scripts.Resources;
 using Godot;
+using ProjectCare.Scripts.Resources.Inventory;
 
+namespace ProjectCare.Scripts.Resources;
 
 [GlobalClass]
-public partial class StoreEntry : Resource
-{
-    [Export] public string ItemId { get; set; } = "";
-    [Export] public int Price { get; set; } = 0;
-    [Export] public int MaxStock { get; set; } = 20;
-    
+public partial class StoreEntry : Resource {
+    [Export] public ItemDef Item;
+    [Export] public int Price;
+    [Export] public int Stock;
+
 }

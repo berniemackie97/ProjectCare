@@ -1,15 +1,31 @@
 using Godot;
+using ProjectCare.Scripts;
+using ProjectCare.Scripts.Enums;
+using ProjectCare.Scripts.GameState;
+using ProjectCare.Scripts.Resources;
+
 namespace ProjectCare.UI;
 
 public partial class UIController : Node
 {
-    private Control _inventory;
-    private bool _open;
+    
+    [Export] private Control InventoryUI;
+    [Export] private Control StoreUI;
+    
+    private bool _inventoryOpen;
+    private bool _storeOpen;
+    
+    
 
     public override void _Ready()
     {
-
-        setupInventory();
+        
+        foreach (StoreInteractive store in GetTree().GetNodesInGroup("Stores"))
+        {
+            store.StoreOpened += OnStoreOpened;
+        }
+        HideAll();
+        setUIState(UIState.Default);
         
     }
 
@@ -17,20 +33,65 @@ public partial class UIController : Node
     {
         if (Input.IsActionJustPressed("ui_inventory"))
             ToggleInventory();
+        if (Input.IsActionJustPressed("close_ui"))
+            setUIState(UIState.Default);
     }
 
     private void ToggleInventory()
     {
-        if (_inventory == null) return;
-        _open = !_open;
-        _inventory.Visible = _open;
-        GD.Print(_open ? "Inventory opened" : "Inventory closed");
+        if (!_inventoryOpen)
+        {
+            setUIState(UIState.Inventory);
+        } else
+        {
+            setUIState(UIState.Default);
+        }
+    }
+    
+    private void OnStoreOpened(Godot.Collections.Array<StoreEntry> catalog, Pet pet)
+    {
+        StoreInventory ui = StoreUI as StoreInventory;
+        ui.SetCatalog(catalog);
+        setUIState(UIState.Store);
+    }
+    
+    private void HideAll()
+    {
+        if (InventoryUI != null)
+        {
+            InventoryUI.Visible = false;
+            _inventoryOpen = false;
+        }
+
+        if (StoreUI != null)
+        {
+            StoreUI.Visible = false;
+            _storeOpen = false;
+        }
     }
 
-    private void setupInventory()
+    public void setUIState(UIState newState)
     {
-        _inventory = GetNodeOrNull<Control>("../Inventory");
-        _inventory.Visible = false;
+        HideAll();
+        
+        switch (newState)
+        {
+            case UIState.Default :
+                return;
+            case UIState.Inventory :
+                InventoryUI.Visible = true;
+                _inventoryOpen = true;
+                break;
+            case UIState.Store :
+                InventoryUI.Visible = true;
+                _inventoryOpen = true;
+                StoreUI.Visible = true;
+                _storeOpen = true;
+                break;
+            default:
+                return;
+        }
     }
+    
     
 }

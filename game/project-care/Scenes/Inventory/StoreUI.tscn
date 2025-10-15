@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://chiirigxl54yu"]
+[gd_scene load_steps=6 format=3 uid="uid://wy550kxvfv0r"]
 
-[ext_resource type="Script" uid="uid://brs1qc2fttvnr" path="res://Scripts/GameState/Inventory/Inventory.cs" id="1_4ldj3"]
-[ext_resource type="Texture2D" uid="uid://1pulks3772we" path="res://Assets/UI/InventoryRect.png" id="1_i8wl3"]
-[ext_resource type="PackedScene" uid="uid://bumsw2wdwc8f8" path="res://Scenes/Inventory/inventory_button.tscn" id="2_wv8bo"]
-[ext_resource type="FontFile" uid="uid://dp4jt3u1b8lln" path="res://Assets/Fonts/PixExtrusion.ttf" id="3_dyql7"]
+[ext_resource type="Script" uid="uid://cieokp4yirnug" path="res://Scripts/UI/Store/StoreInventory.cs" id="1_7y3jh"]
+[ext_resource type="Texture2D" uid="uid://1pulks3772we" path="res://Assets/UI/InventoryRect.png" id="1_sitkq"]
+[ext_resource type="FontFile" uid="uid://dp4jt3u1b8lln" path="res://Assets/Fonts/PixExtrusion.ttf" id="2_7y3jh"]
+[ext_resource type="PackedScene" uid="uid://bumsw2wdwc8f8" path="res://Scenes/Inventory/inventory_button.tscn" id="2_o723o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_808hc"]
-font = ExtResource("3_dyql7")
+font = ExtResource("2_7y3jh")
 font_color = Color(0, 0, 0, 1)
 
 [node name="ItemsContainer" type="Control" node_paths=PackedStringArray("GridContainer")]
@@ -15,8 +15,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 180.0
 offset_bottom = 360.0
-script = ExtResource("1_4ldj3")
-ButtonScene = ExtResource("2_wv8bo")
+script = ExtResource("1_7y3jh")
+ButtonScene = ExtResource("2_o723o")
 GridContainer = NodePath("NinePatchRect/Grid")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -24,7 +24,7 @@ custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 offset_right = 180.0
 offset_bottom = 360.0
-texture = ExtResource("1_i8wl3")
+texture = ExtResource("1_sitkq")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -52,6 +52,6 @@ offset_left = 27.0
 offset_top = 18.0
 offset_right = 154.0
 offset_bottom = 30.0
-text = "Inventory"
+text = "Store"
 label_settings = SubResource("LabelSettings_808hc")
 horizontal_alignment = 1

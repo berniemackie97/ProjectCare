@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://nc2ohx252h0y"]
+[gd_scene load_steps=18 format=4 uid="uid://nc2ohx252h0y"]
 
 [ext_resource type="Script" uid="uid://c72fmtic4fxk6" path="res://Scripts/Camera/WorldCamera.cs" id="1_3586x"]
 [ext_resource type="TileSet" uid="uid://cy58y12mmwgua" path="res://Tiles/Tilesets/TownCenter.tres" id="2_10ki7"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://4ar25s0jiyav" path="res://Scenes/Game/fountain.tscn" id="11_10ki7"]
 [ext_resource type="PackedScene" uid="uid://chiirigxl54yu" path="res://Scenes/Inventory/InventoryUI.tscn" id="11_ti1oi"]
 [ext_resource type="Script" uid="uid://kpuwd060lmhj" path="res://Scripts/UI/UIController.cs" id="12_edkrd"]
+[ext_resource type="PackedScene" uid="uid://bumsw2wdwc8f8" path="res://Scenes/Inventory/inventory_button.tscn" id="12_jf0ra"]
+[ext_resource type="PackedScene" uid="uid://wy550kxvfv0r" path="res://Scenes/Inventory/StoreUI.tscn" id="14_fg52j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hno3"]
 size = Vector2(12, 8)
@@ -110,8 +112,18 @@ offset_top = -327.33334
 offset_right = 278.3333
 offset_bottom = 27.333344
 
-[node name="UIController" type="Node" parent="UI2/UIRoot"]
+[node name="UIController" type="Node" parent="UI2/UIRoot" node_paths=PackedStringArray("InventoryUI", "StoreUI")]
 script = ExtResource("12_edkrd")
+InventoryUI = NodePath("../Inventory")
+StoreUI = NodePath("../StoreUI")
+
+[node name="StoreUI" parent="UI2/UIRoot" instance=ExtResource("14_fg52j")]
+layout_mode = 0
+offset_left = -557.3334
+offset_top = -334.0
+offset_right = -377.33337
+offset_bottom = 26.0
+inventoryButtonScene = ExtResource("12_jf0ra")
 
 [node name="Props" type="TileMapLayer" parent="."]
 z_index = 1
